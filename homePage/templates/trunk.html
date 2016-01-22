@@ -1,0 +1,131 @@
+{% load staticfiles %}
+<!DOCTYPE html> 
+<html lang="en">
+<head> 
+
+<title>Gallery</title> 
+
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="HandheldFriendly" content="True">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<!-- Style Sheets --> 
+<link rel="stylesheet" type="text/css" media="all" href="/static/trunk/css/reset.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/static/trunk/css/trunk.css" />
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400;300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="/static/FinalGal/css/menuStyle.css">
+<link rel="stylesheet" type="text/css" href="/static/FinalGal/css/style.css" />
+
+<!-- Scripts --> 
+<script type="text/javascript">
+	if (typeof jQuery == 'undefined')
+		document.write(unescape("%3Cscript src='/static/trunk/js/jquery-1.9.js'" + 
+															"type='text/javascript'%3E%3C/script%3E"))
+</script>
+<script type="text/javascript" language="javascript" src="/static/trunk/js/trunk.js"></script>
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<![endif]-->
+
+
+</head> 
+ 
+<body> 
+
+<div class="container">
+
+	<header class="slide">     <!--	Add "slideRight" class to items that move right when viewing Nav Drawer  -->
+		<ul id="navToggle" class="burger slide">    <!--	Add "slideRight" class to items that move right when viewing Nav Drawer  -->
+			<li></li><li></li><li></li>
+		</ul>
+		<h1>DEPARTMENT  OF PHOTOGRAPHY</h1>
+	</header>
+
+	<nav class="slide">
+		<ul>
+			<li><a href="home" class="active">HOME</a></li>
+			<li><a href="gallery">GALLERY</a></li>
+			<li><a href="about">ABOUT</a></li>
+			<li><a href="contact">CONTACT US</a></li>
+			<!-- <li><a href="#">LINK FIVE</a></li>
+			<li><a href="#">LINK SIX</a></li>
+			<li><a href="#">LINK SEVEN</a></li> -->
+		</ul>
+	</nav>
+	
+	<div class="content slide">     <!--	Add "slideRight" class to items that move right when viewing Nav Drawer  -->
+		<div class="responsive">
+			<div class="header-section">
+				<!-- <p class="placefiller">HEADER</p> -->
+				<div class="slideRight">
+				<div id="wowslider-container1">
+<div class="ws_images"><ul>
+		<li><img src="/static/FinalGal/images/1.jpg" alt="1" title="1" id="wows1_0"/></li>
+		<li><img src="/static/FinalGal/images/10.jpg" alt="10" title="10" id="wows1_1"/></li>
+		<li><img src="/static/FinalGal/images/11.jpg" alt="11" title="11" id="wows1_2"/></li>
+		<li><img src="/static/FinalGal/images/12.jpg" alt="12" title="12" id="wows1_3"/></li>
+		<li><img src="/static/FinalGal/images/13.jpg" alt="13" title="13" id="wows1_4"/></li>
+		<li><img src="/static/FinalGal/images/14.jpg" alt="14" title="14" id="wows1_5"/></li>
+		<li><img src="/static/FinalGal/images/15.jpg" alt="15" title="15" id="wows1_6"/></li>
+		<li><img src="/static/FinalGal/images/2.jpg" alt="2" title="2" id="wows1_7"/></li>
+		<li><img src="/static/FinalGal/images/3.jpg" alt="3" title="3" id="wows1_8"/></li>
+		<li><img src="/static/FinalGal/images/4.jpg" alt="4" title="4" id="wows1_9"/></li>
+		<li><img src="/static/FinalGal/images/5.jpg" alt="5" title="5" id="wows1_10"/></li>
+		<li><img src="/static/FinalGal/images/6.jpg" alt="6" title="6" id="wows1_11"/></li>
+		<li><img src="/static/FinalGal/images/7.jpg" alt="7" title="7" id="wows1_12"/></li>
+		<li><a href="http://wowslider.com"><img src="/static/FinalGal/images/8.jpg" alt="http://wowslider.com/" title="8" id="wows1_13"/></a></li>
+		<li><img src="/static/FinalGal/images/9.jpg" alt="9" title="9" id="wows1_14"/></li>
+	</ul></div>
+	<div class="ws_bullets"><div>
+		<a href="#" title="1"><span><img src="/static/FinalGal/tooltips/1.jpg" alt="1"/>1</span></a>
+		<a href="#" title="10"><span><img src="/static/FinalGal/tooltips/10.jpg" alt="10"/>2</span></a>
+		<a href="#" title="11"><span><img src="/static/FinalGal/tooltips/11.jpg" alt="11"/>3</span></a>
+		<a href="#" title="12"><span><img src="/static/FinalGal/tooltips/12.jpg" alt="12"/>4</span></a>
+		<a href="#" title="13"><span><img src="/static/FinalGal/tooltips/13.jpg" alt="13"/>5</span></a>
+		<a href="#" title="14"><span><img src="/static/FinalGal/tooltips/14.jpg" alt="14"/>6</span></a>
+		<a href="#" title="15"><span><img src="/static/FinalGal/tooltips/15.jpg" alt="15"/>7</span></a>
+		<a href="#" title="2"><span><img src="/static/FinalGal/tooltips/2.jpg" alt="2"/>8</span></a>
+		<a href="#" title="3"><span><img src="/static/FinalGal/tooltips/3.jpg" alt="3"/>9</span></a>
+		<a href="#" title="4"><span><img src="/static/FinalGal/tooltips/4.jpg" alt="4"/>10</span></a>
+		<a href="#" title="5"><span><img src="/static/FinalGal/tooltips/5.jpg" alt="5"/>11</span></a>
+		<a href="#" title="6"><span><img src="/static/FinalGal/tooltips/6.jpg" alt="6"/>12</span></a>
+		<a href="#" title="7"><span><img src="/static/FinalGal/tooltips/7.jpg" alt="7"/>13</span></a>
+		<a href="#" title="8"><span><img src="/static/FinalGal/tooltips/8.jpg" alt="8"/>14</span></a>
+		<a href="#" title="9"><span><img src="/static/FinalGal/tooltips/9.jpg" alt="9"/>15</span></a>
+	</div></div><div class="ws_script" style="position:absolute;left:-99%"><!-- <a href="http://wowslider.com/vi">bootstrap slider</a> by WOWSlider.com v8.6 --></div>
+<div class="ws_shadow"></div>
+</div>
+</div>
+<script type="text/javascript" src="/static/FinalGal/js/wowslider.js"></script>
+<script type="text/javascript" src="/static/FinalGal/js/script.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</div>
+			</li>
+			<li class="body-section">
+				<div class="placefiller" style="font-size:50px;position:bottom">
+				<!-- <div class="footer-section" style="font-size:50px"> -->
+				<!-- <p class="placefiller"></p> -->
+			<a href="https://www.facebook.com/DoPY.BITSGoa"><i class="fa fa-facebook" style="float:right;background-color:;"></i></a>
+			<a href="https://twitter.com/"><i class="fa fa-twitter" style="float:right;background-color:;"></i></a>
+			<a href="https://www.instagram.com/"><i class="fa fa-instagram" style="float:right;background-color:;"></i></a></div>
+				
+			</li>
+</div>
+			
+		</div>
+	
+</div>
+
+	
+</body> 
+</html>
+
+
+
+
+
+
+
