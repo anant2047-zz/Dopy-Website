@@ -1,18 +1,18 @@
 from django.contrib import admin
 from .models import *
 from .upload import Upload
-from .forms import SignUpForm, UploadFileForm
+from .forms import UploadFileForm
 
 # from .upload import upload
-class SignUpAdmin(admin.ModelAdmin):
-	list_display = ["email", "timestamp", "updated"]
-	# class Meta:
-	# 	model = SignUp
-	form = SignUpForm
+# class SignUpAdmin(admin.ModelAdmin):
+# 	list_display = ["email", "timestamp", "updated"]
+# 	# class Meta:
+# 	# 	model = SignUp
+# 	form = SignUpForm
 
 
 
-admin.site.register(SignUp, SignUpAdmin)
+# admin.site.register(SignUp, SignUpAdmin)
 
 # Register your models here.
 class UploadFileAdmin(admin.ModelAdmin):
@@ -20,7 +20,7 @@ class UploadFileAdmin(admin.ModelAdmin):
 	# a,b = UploadImage.__str__()
 	# a,b = "__str__".split("======================>")
 	# list_display = ['Event','Filename'] 
-	list_display = ["__str__","event_name"]
+	list_display = ["__str__","event_name","description"]
 	form = UploadFileForm
 	
 	# class Meta:
@@ -54,10 +54,11 @@ class UploadFileAdmin(admin.ModelAdmin):
 		print(request.FILES['sliderImages'].name)
 		panelImages = request.FILES['panelImages'].name
 		storage = request.FILES['storage'].name
+		thumbnails = request.FILES['thumbnails'].name
 		print(request)
 		# storage = filename = request.FILES['storage'].name
 		Up = Upload()
-		Up.startScript(event_name,sliderImages,panelImages,storage)
+		Up.startScript(event_name,sliderImages,panelImages,storage,thumbnails)
 		#list_display = ["__str__","filename"]
 		#list_display = ["__str__","filename"]
 		# list_display.extend(filename)

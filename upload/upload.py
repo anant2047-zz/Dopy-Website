@@ -30,7 +30,7 @@ class Upload():
 	def move(self,old,new):
 		shutil.move(old,new)
 
-	def startScript(self,event_name,sliderImage,panelImage,storage):
+	def startScript(self,event_name,sliderImage,panelImage,storage,thumbnails):
 		
 		print(event_name)
 		print(settings.BASE_DIR)
@@ -60,3 +60,5 @@ class Upload():
 		for f in os.listdir(os.path.join(os.path.dirname(os.path.join(settings.BASE_DIR)), "static_in_env","media_root" ,"events","storage")):
 			self.rename(os.path.join(os.path.dirname(os.path.join(settings.BASE_DIR)), "static_in_env","media_root" ,"events","storage",f ),os.path.join(os.path.dirname(os.path.join(settings.BASE_DIR)), "static_in_env","media_root" ,"events",event_name,"storage",event_name + ".zip" ))
 		 	#self.move(os.path.join(os.path.dirname(os.path.join(os.path.dirname(os.path.join(settings.BASE_DIR)))) , "static_in_env","media_root","events","storage",f),os.path.join(os.path.dirname(os.path.join(settings.BASE_DIR)), "static_in_env","media_root" ,"events",event_name,"storage",event_name + ".zip"))
+
+		
