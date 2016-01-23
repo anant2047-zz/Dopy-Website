@@ -14,7 +14,10 @@ urlpatterns = [
     url(r'^about$', about),
     url(r'^contact$', contact),
     url(r'^gallery', gallery),
+    url(r'^accounts/', include('registration.backends.default.urls')),
 ]
+admin.site.site_header = 'DOPY ADMIN'
+admin.site.site_title = 'DoPy'
 
 if settings.DEBUG:
 	urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

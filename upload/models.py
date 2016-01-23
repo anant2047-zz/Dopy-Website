@@ -7,6 +7,8 @@ class UploadFile(models.Model):
 	sliderImages = models.FileField(upload_to='events/sliderImages/', blank=False, null=False)
 	panelImages = models.FileField(upload_to='events/panelImages/', blank=False, null=False)
 	storage = models.FileField(upload_to='events/storage/', blank=False, null=False)
+	thumbnails = models.FileField(upload_to='events/thumbnails',blank=True,null=False)
+	description = models.CharField(max_length=200,blank=True)
 	# timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
 	# updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
@@ -24,15 +26,15 @@ class UploadFile(models.Model):
 	# 	return '%s' %(self.event_name)
 	def __str__(self):
 		return os.path.basename(self.storage.name)
-class SignUp(models.Model):
-	email = models.EmailField()
-	fullname = models.CharField(max_length=120, blank=True, null=True)
-	#password =forms.CharField(widget=forms.PasswordInput())
-	timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
-	updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+# class SignUp(models.Model):
+# 	email = models.EmailField()
+# 	fullname = models.CharField(max_length=120, blank=True, null=True)
+# 	#password =forms.CharField(widget=forms.PasswordInput())
+# 	timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
+# 	updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
-	def __str__(self):
-		return self.email
+# 	def __str__(self):
+# 		return self.email
 
 
 		#return self.event_name

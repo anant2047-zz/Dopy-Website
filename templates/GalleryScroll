@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+ <title>Gallery</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/static/FinalGal/css/menuStyle.css">
+<link rel="stylesheet" type="text/css" href="/static/FinalGal/css/style.css">
+  <link href='http://fonts.googleapis.com/css?family=Julius+Sans+One' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/static/site/css/style1.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="/static/site/js/mobile.js"></script>
+
+		<script>
+		$(function() {
+			var pull 		= $('#pull');
+				menu 		= $('nav ul');
+				menuHeight	= menu.height();
+
+			$(pull).on('click', function(e) {
+				e.preventDefault();
+				menu.slideToggle();
+			});
+
+			$(window).resize(function(){
+        		var w = $(window).width();
+        		if(w > 320 && menu.is(':hidden')) {
+        			menu.removeAttr('style');
+        		}
+    		});
+		});
+	</script>
+</head>
+<body>
+  <div id="container">
+		<div class="wrap">
+			<div id="w3-universal-nav">
+    	<ul id="header">
+    		<div class="logo">
+    		<div class="top-socialicons">
+    			
+    		</div>
+    		<div class="clear">
+        <div id="wowslider-container1">
+<div class="ws_images"><ul>
+    <li><img src="/static/FinalGal/images/1.jpg" alt="1" title="1" id="wows1_0"/></li>
+    <li><img src="/static/FinalGal/images/10.jpg" alt="10" title="10" id="wows1_1"/></li>
+    <li><img src="/static/FinalGal/images/11.jpg" alt="11" title="11" id="wows1_2"/></li>
+    <li><img src="/static/FinalGal/images/12.jpg" alt="12" title="12" id="wows1_3"/></li>
+    <li><img src="/static/FinalGal/images/13.jpg" alt="13" title="13" id="wows1_4"/></li>
+    <li><img src="/static/FinalGal/images/14.jpg" alt="14" title="14" id="wows1_5"/></li>
+    <li><img src="/static/FinalGal/images/15.jpg" alt="15" title="15" id="wows1_6"/></li>
+    <li><img src="/static/FinalGal/images/2.jpg" alt="2" title="2" id="wows1_7"/></li>
+    <li><img src="/static/FinalGal/images/3.jpg" alt="3" title="3" id="wows1_8"/></li>
+    <li><img src="/static/FinalGal/images/4.jpg" alt="4" title="4" id="wows1_9"/></li>
+    <li><img src="/static/FinalGal/images/5.jpg" alt="5" title="5" id="wows1_10"/></li>
+    <li><img src="/static/FinalGal/images/6.jpg" alt="6" title="6" id="wows1_11"/></li>
+    <li><img src="/static/FinalGal/images/7.jpg" alt="7" title="7" id="wows1_12"/></li>
+    <li><a href="http://wowslider.com"><img src="/static/FinalGal/images/8.jpg" alt="http://wowslider.com/" title="8" id="wows1_13"/></a></li>
+    <li><img src="/static/FinalGal/images/9.jpg" alt="9" title="9" id="wows1_14"/></li>
+  </ul></div>
+  <div class="ws_bullets"><div>
+    <a href="#" title="1"><span><img src="/static/FinalGal/tooltips/1.jpg" alt="1"/>1</span></a>
+    <a href="#" title="10"><span><img src="/static/FinalGal/tooltips/10.jpg" alt="10"/>2</span></a>
+    <a href="#" title="11"><span><img src="/static/FinalGal/tooltips/11.jpg" alt="11"/>3</span></a>
+    <a href="#" title="12"><span><img src="/static/FinalGal/tooltips/12.jpg" alt="12"/>4</span></a>
+    <a href="#" title="13"><span><img src="/static/FinalGal/tooltips/13.jpg" alt="13"/>5</span></a>
+    <a href="#" title="14"><span><img src="/static/FinalGal/tooltips/14.jpg" alt="14"/>6</span></a>
+    <a href="#" title="15"><span><img src="/static/FinalGal/tooltips/15.jpg" alt="15"/>7</span></a>
+    <a href="#" title="2"><span><img src="/static/FinalGal/tooltips/2.jpg" alt="2"/>8</span></a>
+    <a href="#" title="3"><span><img src="/static/FinalGal/tooltips/3.jpg" alt="3"/>9</span></a>
+    <a href="#" title="4"><span><img src="/static/FinalGal/tooltips/4.jpg" alt="4"/>10</span></a>
+    <a href="#" title="5"><span><img src="/static/FinalGal/tooltips/5.jpg" alt="5"/>11</span></a>
+    <a href="#" title="6"><span><img src="/static/FinalGal/tooltips/6.jpg" alt="6"/>12</span></a>
+    <a href="#" title="7"><span><img src="/static/FinalGal/tooltips/7.jpg" alt="7"/>13</span></a>
+    <a href="#" title="8"><span><img src="/static/FinalGal/tooltips/8.jpg" alt="8"/>14</span></a>
+    <a href="#" title="9"><span><img src="/static/FinalGal/tooltips/9.jpg" alt="9"/>15</span></a>
+  </div></div><div class="ws_script" style="position:absolute;left:-99%"><a href="http://wowslider.com/vi">bootstrap slider</a> by WOWSlider.com v8.6</div>
+<div class="ws_shadow"></div>
+</div> </div>
+    	</ul>
+    	<ul id="w3-menu-links" style="display: none;">
+    	</ul>
+    		</div>
+</div>
+
+
+    <div id="main" role="main">
+      <ul id="tiles">
+
+        <!-- These are our grid blocks -->
+        <li><a href="singlepage.html"><img src="/static/site/images/g1.jpg" width="275"></a><p>popular <span><a href="singlepage.html"><img src="/static/site/images/view-icon.png" title="view" /><a href="singlepage.html"><img src="/static/site/images/like.png" title="like" /><a href="singlepage.html"><img src="/static/site/images/comment.png" title="link" /></a><a href="singlepage.html"><img src="/static/site/images/priview.png" title="priview" /></a></span></p></li>
+        <li><a href="singlepage.html"><img src="/static/site/images/g2.jpg" width="275"></a><p>reproduced  <span><a href="singlepage.html"><img src="/static/site/images/view-icon.png" title="view" /><a href="singlepage.html"><img src="/static/site/images/like.png" title="like" /><a href="singlepage.html"><img src="/static/site/images/comment.png" title="link" /></a><a href="singlepage.html"><img src="/static/site/images/priview.png" title="priview" /></a></span></p></li>
+        <li><a href="singlepage.html"><img src="/static/site/images/g3.jpg" width="275"></a><p>Photoshopped  <span><a href="singlepage.html"><img src="/static/site/images/view-icon.png" title="view" /><a href="singlepage.html"><img src="/static/site/images/like.png" title="like" /><a href="singlepage.html"><img src="/static/site/images/comment.png" title="link" /></a><a href="singlepage.html"><img src="/static/site/images/priview.png" title="priview" /></a></span></p></li>
+        <li><a href="singlepage.html"><img src="/static/site/images/g5.jpg" width="275"></a><p>new <span><a href="singlepage.html"><img src="/static/site/images/view-icon.png" title="view" /><a href="singlepage.html"><img src="/static/site/images/like.png" title="like" /><a href="singlepage.html"><img src="/static/site/images/comment.png" title="link" /></a><a href="singlepage.html"><img src="/static/site/images/priview.png" title="priview" /></a></span></p></li>
+        <li><a href="singlepage.html"><img src="/static/site/images/g6.jpg" width="275"></a><p>week 1 best <span><a href="singlepage.html"><img src="/static/site/images/view-icon.png" title="view" /><a href="singlepage.html"><img src="/static/site/images/like.png" title="like" /><a href="singlepage.html"><img src="/static/site/images/comment.png" title="link" /></a><a href="singlepage.html"><img src="/static/site/images/priview.png" title="priview" /></a></span></p></li>
+        <li><a href="singlepage.html"><img src="/static/site/images/g7.jpg" width="275"></a><p>week 2 best <span><a href="singlepage.html"><img src="/static/site/images/view-icon.png" title="view" /><a href="singlepage.html"><img src="/static/site/images/like.png" title="like" /><a href="singlepage.html"><img src="/static/site/images/comment.png" title="link" /></a><a href="singlepage.html"><img src="/static/site/images/priview.png" title="priview" /></a></span></p></li>
+        <li><a href="singlepage.html"><img src="/static/site/images/g5.jpg" width="275"></a><p>week 3 best <span><a href="singlepage.html"><img src="/static/site/images/view-icon.png" title="view" /><a href="singlepage.html"><img src="/static/site/images/like.png" title="like" /><a href="singlepage.html"><img src="/static/site/images/comment.png" title="link" /></a><a href="singlepage.html"><img src="/static/site/images/priview.png" title="priview" /></a></span></p></li>
+        <li><a href="singlepage.html"><img src="/static/site/images/g9.jpg" width="275"></a><p>week  4 best  <span><a href="singlepage.html"><img src="/static/site/images/view-icon.png" title="view" /><a href="singlepage.html"><img src="/static/site/images/like.png" title="like" /><a href="singlepage.html"><img src="/static/site/images/comment.png" title="link" /></a><a href="singlepage.html"><img src="/static/site/images/priview.png" title="priview" /></a></span></p></li>
+        <li><a href="singlepage.html"><img src="/static/site/images/g10.jpg" width="275"></a><p>week 5 best  <span><a href="singlepage.html"><img src="/static/site/images/view-icon.png" title="view" /><a href="singlepage.html"><img src="/static/site/images/like.png" title="like" /><a href="singlepage.html"><img src="/static/site/images/comment.png" title="link" /></a><a href="singlepage.html"><img src="/static/site/images/priview.png" title="priview" /></a></span></p></li>
+        <li><a href="singlepage.html"><img src="/static/site/images/g7.jpg" width="275"></a><p>Hysterical <span><a href="singlepage.html"><img src="/static/site/images/view-icon.png" title="view" /><a href="singlepage.html"><img src="/static/site/images/like.png" title="like" /><a href="singlepage.html"><img src="/static/site/images/comment.png" title="link" /></a><a href="singlepage.html"><img src="/static/site/images/priview.png" title="priview" /></a></span></p></li>
+        <li><a href="singlepage.html"><img src="/static/site/images/g12.jpg" width="275"></a><p>random <span><a href="singlepage.html"><img src="/static/site/images/view-icon.png" title="view" /><a href="singlepage.html"><img src="/static/site/images/like.png" title="like" /><a href="singlepage.html"><img src="/static/site/images/comment.png" title="link" /></a><a href="singlepage.html"><img src="/static/site/images/priview.png" title="priview" /></a></span></p></li>
+        <li><a href="singlepage.html"><img src="/static/site/images/g11.jpg" width="275"></a><p>Trending <span><a href="singlepage.html"><img src="/static/site/images/view-icon.png" title="view" /><a href="singlepage.html"><img src="/static/site/images/like.png" title="like" /><a href="singlepage.html"><img src="/static/site/images/comment.png" title="link" /></a><a href="singlepage.html"><img src="/static/site/images/priview.png" title="priview" /></a></span></p></li>
+        <li><a href="singlepage.html"><img src="/static/site/images/g13.jpg" width="275"></a><p>Fresh <span><a href="singlepage.html"><img src="/static/site/images/view-icon.png" title="view" /><a href="singlepage.html"><img src="/static/site/images/like.png" title="like" /><a href="singlepage.html"><img src="/static/site/images/comment.png" title="link" /></a><a href="singlepage.html"><img src="/static/site/images/priview.png" title="priview" /></a></span></p></li>
+        <li><a href="singlepage.html"><img src="/static/site/images/g14.jpg" width="275"></a><p>Hall of fame <span><a href="singlepage.html"><img src="/static/site/images/view-icon.png" title="view" /><a href="singlepage.html"><img src="/static/site/images/like.png" title="like" /><a href="singlepage.html"><img src="/static/site/images/comment.png" title="link" /></a><a href="singlepage.html"><img src="/static/site/images/priview.png" title="priview" /></a></span></p></li>
+        <li><a href="singlepage.html"><img src="/static/site/images/g15.jpg" width="275"></a><p>Scenic<span><a href="singlepage.html"><img src="/static/site/images/view-icon.png" title="view" /><a href="singlepage.html"><img src="/static/site/images/like.png" title="like" /><a href="singlepage.html"><img src="/static/site/images/comment.png" title="link" /></a><a href="singlepage.html"><img src="/static/site/images/priview.png" title="priview" /></a></span></p></li>
+        <li><a href="singlepage.html"><img src="/static/site/images/g16.jpg" width="275"></a><p>Beauty  <span><a href="singlepage.html"><img src="/static/site/images/view-icon.png" title="view" /><a href="singlepage.html"><img src="/static/site/images/like.png" title="like" /><a href="singlepage.html"><img src="/static/site/images/comment.png" title="link" /></a><a href="singlepage.html"><img src="/static/site/images/priview.png" title="priview" /></a></span></p></li>
+        <li><a href="singlepage.html"><img src="/static/site/images/g17.jpg" width="275"></a><p>Skyfall  <span><a href="singlepage.html"><img src="/static/site/images/view-icon.png" title="view" /><a href="singlepage.html"><img src="/static/site/images/like.png" title="like" /><a href="singlepage.html"><img src="/static/site/images/comment.png" title="link" /></a><a href="singlepage.html"><img src="/static/site/images/priview.png" title="priview" /></a></span></p></li>
+        <li><a href="singlepage.html"><img src="/static/site/images/g18.jpg" width="275"></a><p>altered elements  <span><a href="singlepage.html"><img src="/static/site/images/view-icon.png" title="view" /><a href="singlepage.html"><img src="/static/site/images/like.png" title="like" /><a href="singlepage.html"><img src="/static/site/images/comment.png" title="link" /></a><a href="singlepage.html"><img src="/static/site/images/priview.png" title="priview" /></a></span></p></li>
+        <li><a href="singlepage.html"><img src="/static/site/images/g19.jpg" width="275"></a><p>Internet <span><a href="singlepage.html"><img src="/static/site/images/view-icon.png" title="view" /><a href="singlepage.html"><img src="/static/site/images/like.png" title="like" /><a href="singlepage.html"><img src="/static/site/images/comment.png" title="link" /></a><a href="singlepage.html"><img src="/static/site/images/priview.png" title="priview" /></a></span></p></li>
+        <li><a href="singlepage.html"><img src="/static/site/images/g9.jpg" width="275"></a><p>Deception <span><a href="singlepage.html"><img src="/static/site/images/view-icon.png" title="view" /><a href="singlepage.html"><img src="/static/site/images/like.png" title="like" /><a href="singlepage.html"><img src="/static/site/images/comment.png" title="link" /></a><a href="singlepage.html"><img src="/static/site/images/priview.png" title="priview" /></a></span></p></li>
+        <li><a href="singlepage.html"><img src="/static/site/images/g10.jpg" width="275"></a><p>Emboss <span><a href="singlepage.html"><img src="/static/site/images/view-icon.png" title="view" /><a href="singlepage.html"><img src="/static/site/images/like.png" title="like" /><a href="singlepage.html"><img src="/static/site/images/comment.png" title="link" /></a><a href="singlepage.html"><img src="/static/site/images/priview.png" title="priview" /></a></span></p></li>
+        <li><a href="singlepage.html"><img src="/static/site/images/g7.jpg" width="275"></a><p>HDR 1<span><a href="singlepage.html"><img src="/static/site/images/view-icon.png" title="view" /><a href="singlepage.html"><img src="/static/site/images/like.png" title="like" /><a href="singlepage.html"><img src="/static/site/images/comment.png" title="link" /></a><a href="singlepage.html"><img src="/static/site/images/priview.png" title="priview" /></a></span></p></li>
+        <li><a href="singlepage.html"><img src="/static/site/images/g12.jpg" width="275"></a><p>HDR 2  <span><a href="singlepage.html"><img src="/static/site/images/view-icon.png" title="view" /><a href="singlepage.html"><img src="/static/site/images/like.png" title="like" /><a href="singlepage.html"><img src="/static/site/images/comment.png" title="link" /></a><a href="singlepage.html"><img src="/static/site/images/priview.png" title="priview" /></a></span></p></li>
+        <li><a href="singlepage.html"><img src="/static/site/images/g11.jpg" width="275"></a><p>reproduced  <span><a href="singlepage.html"><img src="/static/site/images/view-icon.png" title="view" /><a href="singlepage.html"><img src="/static/site/images/like.png" title="like" /><a href="singlepage.html"><img src="/static/site/images/comment.png" title="link" /></a><a href="singlepage.html"><img src="/static/site/images/priview.png" title="priview" /></a></span></p></li>
+        
+      </ul>
+
+    </div>
+   </div>
+    <footer>
+
+    </footer>
+  </div>
+		
+  
+  <script src="/static/site/js/jquery.min.js"></script>
+
+  
+  <script src="/static/site/js/jquery.imagesloaded.js"></script>
+
+  
+  <script src="/static/site/js/jquery.wookmark.js"></script>
+
+  
+  <script type="text/javascript">
+    (function ($){
+      $('#tiles').imagesLoaded(function() {
+        var handler = null;
+
+        
+        var options = {
+          autoResize: true, 
+          container: $('#main'), 
+          offset: 20, 
+          itemWidth: 275 
+        };
+
+        
+        function onScroll(event) {
+          
+          var winHeight = window.innerHeight ? window.innerHeight : $(window).height(); 
+          var closeToBottom = ($(window).scrollTop() + winHeight > $(document).height() - 100);
+
+          if (closeToBottom) {
+            
+            var items = $('#tiles li'),
+                firstTen = items.slice(0, 10);
+            $('#tiles').append(firstTen.clone());
+
+           
+            if (handler.wookmarkInstance) {
+              handler.wookmarkInstance.clear();
+            }
+
+            handler = $('#tiles li');
+            handler.wookmark(options);
+          }
+        };
+
+        $(window).bind('scroll', onScroll);
+
+        handler = $('#tiles li');
+        handler.wookmark(options);
+      });
+    })(jQuery);
+  </script>
+
+  <script type="text/javascript" src="/static/FinalGal/js/wowslider.js"></script>
+<script type="text/javascript" src="/static/FinalGal/js/script.js"></script>
+</div>
+</body>
+</html>
