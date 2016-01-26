@@ -1,0 +1,228 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <link rel="icon" href="/media/Images/favicon.png" type="image/x-icon">
+ <title>{{title}}</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" type="text/css" href="/static/gallery1/css/finalMenu.css">
+<link rel="stylesheet" type="text/css" href="/static/FinalGal/css/style.css">
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400;300' rel='stylesheet' type='text/css'>
+<link href="/static/assets/css/main.css" rel="stylesheet">
+<link href="/static/assets/css/bootstrap.css" rel="stylesheet">
+<link rel="stylesheet" href="/static/site/css/style1.css">
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="/static/site/js/mobile.js"></script>
+		<script>
+		$(function() {
+			var pull 		= $('#pull');
+				menu 		= $('nav ul');
+				menuHeight	= menu.height();
+
+			$(pull).on('click', function(e) {
+				e.preventDefault();
+				menu.slideToggle();
+			});
+
+			$(window).resize(function(){
+        		var w = $(window).width();
+        		if(w > 320 && menu.is(':hidden')) {
+        			menu.removeAttr('style');
+        		}
+    		});
+		});
+	</script>
+
+</head>
+
+<body>
+
+
+	<div class="clear">
+   </div>
+
+			<div class="left-sidebar">
+<!-- MENU -->
+     <div>
+          <nav id="menu" class="left">
+              <ul>
+                <li class="homefix"><a href="home" class="active"><i class="fa fa-home"></i>Home</a></li>
+                <li class="galleryfix"><a href="gallery"><i class="fa fa-camera"></i>Gallery</a></li>
+                <li class="aboutfix"><a href="gallery"><i class="fa fa-info-circle"></i>About</a></li>
+                <li> <a href="#"><i class="fa fa-xing"></i>Our Best <i class="fa fa-caret-down"></i></a>
+                  <ul>
+                    <li class="wavesfix"><a href="#">Waves</a></li>
+                    <li class="quarkfix"><a href="#">Quark</a></li>
+                    <li class="spreefix"><a href="#">Spree</a></li>
+                  </ul>
+                </li>
+                <li class="contactfix"><a href="contact"><i class="fa fa-phone"></i>Contact</a></li><br>
+                <br><br>
+                {% block content %}
+                {% endblock %}
+         
+              {% if request.user.is_authenticated %}
+                <input class="btn btn-primany" type="submit" value="Logout" onclick="window.location.href='http://127.0.0.1:8000/accounts/logout'">
+                {% else %}
+                <input class="btn btn-primany" type="submit" value="Sign Up" onclick="window.location.href='http://127.0.0.1:8000/accounts/register'">
+                {% endif %}
+              
+
+          {% if not request.user.is_authenticated and not "/accounts/login" in request.get_full_path %}
+            
+              <input class="btn btn-primany" type="submit" value="Login" onclick="window.location.href='http://127.0.0.1:8000/accounts/login'">
+          </form>
+          {% endif %}
+
+                <br>
+                <br>
+                <a href="https://www.facebook.com/DoPY.BITSGoa"><i class="fa fa-facebook" style="font-size:30px;float:right;color:white;"></i></a>
+                <a href="https://twitter.com/"><i class="fa fa-twitter" style="font-size:30px;float:right;color:white;"></i></a>
+                <a href="https://www.instagram.com/"><i class="fa fa-instagram" style="font-size:30px;float:right;color:white;"></i></a>
+              </ul>
+              <a href="#" id="showmenu"> <i class="fa fa-align-justify"></i> </a>
+               </nav>
+</div>
+					</div>
+    <div id="main" role="main">
+
+
+<div id="wowslider-container1">
+<div class="ws_images"><ul>
+    {% for p,t in slider_list %} 
+      <li><img src="/media/events/{{title}}/sliderImages/img/{{p}}" alt="{{t}}" title="{{t}}" id="wows1_{{t}}"/></li>
+    {% endfor %}  
+</ul></div> 
+
+  <div class="ws_bullets">
+    <div>
+      {% for o,l in thumbnails_list %}
+        <a href="#" title = {{l}} ><span><img src="/media/events/{{title}}/thumbnails/img/{{o}}" alt={{l}}/>1</span></a>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="ws_script" style="position:absolute;left:-99%"><a href="http://wowslider.com/vi">bootstrap slider</a> by WOWSlider.com v8.6</div>
+  <div class="ws_shadow"></div>
+</div>
+    
+
+<!--SLIDER END-->
+
+<ul id="tiles">
+<!-- These are our grid blocks -->
+{% for o in panel_list %}
+   <li><a href="/media/events/{{title}}/panelImages/img/{{o}}"><img src="/media/events/{{title}}/panelImages/img/{{o}}" width="275"></li>
+{% endfor %}
+        
+      </ul>
+
+    </div>
+   </div>
+  </div>
+		
+  
+  <script src="/static/site/js/jquery.min.js"></script>
+
+  
+  <script src="/static/site/js/jquery.imagesloaded.js"></script>
+
+  
+  <script src="/static/site/js/jquery.wookmark.js"></script>
+  <script type="text/javascript" src="/static/FinalGal/js/wowslider.js"></script>
+<script type="text/javascript" src="/static/FinalGal/js/script.js"></script>
+
+  <script>
+$("#showmenu").click(function(e){
+      e.preventDefault();
+      $("#menu").toggleClass("show");
+    });
+    $("#menu a").click(function(event){
+      event.preventDefault();
+      if($(this).next('ul').length){
+        $(this).next().toggle('fast');
+        $(this).children('i:last-child').toggleClass('fa-caret-down fa-caret-left');
+      }
+    });
+
+    $('.homefix a').on('click',function() {           
+        window.location.href = "http://127.0.0.1:8000/home";  
+});
+  $('.aboutfix a').on('click',function() {           
+        window.location.href = "http://127.0.0.1:8000/about"; 
+});
+  $('.galleryfix a').on('click',function() {           
+        window.location.href = "http://127.0.0.1:8000/gallery"; 
+});
+  $('.contactfix a').on('click',function() {           
+        window.location.href = "http://127.0.0.1:8000/contact";  
+});
+  $('.wavesfix a').on('click',function() {           
+        window.location.href = "http://127.0.0.1:8000/gallery/waves";  
+});
+  $('.quarkfix a').on('click',function() {           
+        window.location.href = "http://127.0.0.1:8000/gallery/quark";  
+});
+  $('.spreefix a').on('click',function() {           
+        window.location.href = "http://127.0.0.1:8000/gallery/spree";  
+});
+  $('.fbfix a').on('click',function() {           
+        window.location.href = "https://www.facebook.com/DoPY.BITSGoa"; 
+});
+  $('.twitterfix a').on('click',function() {           
+        window.location.href = "https://www.twitter.com";
+});
+  $('.instagramfix a').on('click',function() {           
+        window.location.href = "https://www.instagram.com";  // Change This
+});
+  $('.signupfix a').on('click',function() {           
+        window.location.href = "http://127.0.0.1:8000/accounts/register";  // Change This
+});
+</script>
+  <script type="text/javascript">
+    (function ($){
+      $('#tiles').imagesLoaded(function() {
+        var handler = null;
+
+        
+        var options = {
+          autoResize: true, 
+          container: $('#main'), 
+          offset: 20, 
+          itemWidth: 275 
+        };
+
+        
+        function onScroll(event) {
+          
+          var winHeight = window.innerHeight ? window.innerHeight : $(window).height(); 
+          var closeToBottom = ($(window).scrollTop() + winHeight > $(document).height() - 100);
+
+          if (closeToBottom) {
+            
+            var items = $('#tiles li'),
+                firstTen = items.slice(0, 10);
+            $('#tiles').append(firstTen.clone());
+
+           
+            if (handler.wookmarkInstance) {
+              handler.wookmarkInstance.clear();
+            }
+
+            handler = $('#tiles li');
+            handler.wookmark(options);
+          }
+        };
+
+        $(window).bind('scroll', onScroll);
+
+        handler = $('#tiles li');
+        handler.wookmark(options);
+      });
+    })(jQuery);
+  </script>
+</div>
+</body>
+</html>
