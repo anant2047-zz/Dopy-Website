@@ -55,6 +55,7 @@ class UploadFileAdmin(admin.ModelAdmin):
 		panelImages = request.FILES['panelImages'].name
 		storage = request.FILES['storage'].name
 		thumbnails = request.FILES['thumbnails'].name
+		# home_slider = request.FILES['home_slider'].name
 		print(request)
 		# storage = filename = request.FILES['storage'].name
 		Up = Upload()

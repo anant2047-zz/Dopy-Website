@@ -4,11 +4,13 @@ import os
 
 class UploadFile(models.Model):
 	event_name=models.CharField(max_length=120, blank=False, null=False)
-	sliderImages = models.FileField(upload_to='events/sliderImages/', blank=False, null=False)
-	panelImages = models.FileField(upload_to='events/panelImages/', blank=False, null=False)
-	storage = models.FileField(upload_to='events/storage/', blank=False, null=False)
-	thumbnails = models.FileField(upload_to='events/thumbnails',blank=True,null=False)
+	sliderImages = models.FileField(upload_to='temporary/sliderImages/', blank=False, null=False)
+	panelImages = models.FileField(upload_to='temporary/panelImages/', blank=False, null=False)
+	storage = models.FileField(upload_to='temporary/storage/', blank=False, null=False)
+	thumbnails = models.FileField(upload_to='temporary/thumbnails',blank=True,null=False)
+	home_slider = models.FileField(upload_to='home_slider',blank=True,null=False)
 	description = models.CharField(max_length=200,blank=True)
+
 	# timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
 	# updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 

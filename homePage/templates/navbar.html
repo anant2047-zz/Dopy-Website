@@ -1,58 +1,127 @@
-   {% load staticfiles %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="/static/gallery1/css/finalMenu.css">
+   <link href="{% static "assets/css/font-awesome.min.css" %}" rel="stylesheet">
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="/static/site/js/mobile.js"></script>
+    <script>
+    $(function() {
+      var pull    = $('#pull');
+        menu    = $('nav ul');
+        menuHeight  = menu.height();
 
-   <!-- Static navbar -->
-    <nav class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href=""><img src="" /></a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="">Home</a></li>
-            <li><a href="">About</a></li>
-            <li><a href="">Contact</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
-          </ul>
+      $(pull).on('click', function(e) {
+        e.preventDefault();
+        menu.slideToggle();
+      });
 
+      $(window).resize(function(){
+            var w = $(window).width();
+            if(w > 320 && menu.is(':hidden')) {
+              menu.removeAttr('style');
+            }
+        });
+    }
 
-          <ul class="nav navbar-nav navbar-right">
-          {% if request.user.is_authenticated %}
-            <li><a href="{% url 'auth_logout' %}">Logout</a></li>
-            {% else %}
-            <li><a href="{% url 'registration_register' %}">Register</a></li>
-            {% endif %}
-          </ul>
+    );
+  </script>
+</head>
+<body>
+<div class="left-sidebar">
+
+      <div>
+          <nav id="menu" class="left">
+              <ul>
+                <li class="homefix"><a href="home" class="active"><i class="fa fa-home"></i>Home</a></li>
+                <li class="galleryfix"><a href="gallery"><i class="fa fa-camera"></i>Gallery</a></li>
+                <li class="aboutfix"><a href="gallery"><i class="fa fa-info-circle"></i>About</a></li>
+                <li> <a href="#"><i class="fa fa-xing"></i>Our Best <i class="fa fa-caret-down"></i></a>
+                  <ul>
+                    <li class="wavesfix"><a href="#">Waves</a></li>
+                    <li class="quarkfix"><a href="#">Quark</a></li>
+                    <li class="spreefix"><a href="#">Spree</a></li>
+                  </ul>
+                </li>
+                <li class="contactfix"><a href="contact"><i class="fa fa-phone"></i>Contact</a></li><br>
+                <br><br>
+                {% block content %}
+                {% endblock %}         
+              {% if request.user.is_authenticated %}
+                <input class="btn btn-primany" type="submit" value="Logout" onclick="window.location.href='http://127.0.0.1:8000/accounts/logout'">
+                {% else %}
+                <!-- <li><a href="{% url 'registration_register' %}">Register</a></li> -->
+                <input class="btn btn-primany" type="submit" value="Sign Up" onclick="window.location.href='http://127.0.0.1:8000/accounts/register'">
+                {% endif %}
+              
 
           {% if not request.user.is_authenticated and not "/accounts/login" in request.get_full_path %}
-            <form class='navbar-form navbar-right' method='POST' action='{% url "auth_login" %}'>{% csrf_token %}
-              <div class='form-group'>
-                  <input type='text' class='form-control' name='username' placeholder='Username' /> 
-              </div>
-              <div class='form-group'>
-                  <input type='password' class='form-control' name='password' placeholder='Password' />
-              </div>
-              <button type='submit' class='btn btn-default'>Login</button>
+              <input class="btn btn-primany" type="submit" value="Login" onclick="window.location.href='http://127.0.0.1:8000/accounts/login'">
           </form>
           {% endif %}
 
+                <br>
+                <br>
+                <a href="https://www.facebook.com/DoPY.BITSGoa"><i class="fa fa-facebook" style="font-size:30px;float:right;color:white;"></i></a>
+                <a href="https://twitter.com/"><i class="fa fa-twitter" style="font-size:30px;float:right;color:white;"></i></a>
+                <a href="https://www.instagram.com/"><i class="fa fa-instagram" style="font-size:30px;float:right;color:white;"></i></a>
+              </ul>
+              <a href="#" id="showmenu"> <i class="fa fa-align-justify"></i> </a>
+               </nav>
+</div>
 
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+
+<script type="text/javascript" src="/static/FinalGal/js/script.js"></script>
+
+  <script>
+$("#showmenu").click(function(e){
+      e.preventDefault();
+      $("#menu").toggleClass("show");
+    });
+    $("#menu a").click(function(event){
+      event.preventDefault();
+      if($(this).next('ul').length){
+        $(this).next().toggle('fast');
+        $(this).children('i:last-child').toggleClass('fa-caret-down fa-caret-left');
+      }
+    });
+  $('.homefix a').on('click',function() {           
+        window.location.href = "http://127.0.0.1:8000/home";  // Change This
+});
+  $('.aboutfix a').on('click',function() {           
+        window.location.href = "http://127.0.0.1:8000/about";  // Change This
+});
+  $('.galleryfix a').on('click',function() {           
+        window.location.href = "http://127.0.0.1:8000/gallery";  // Change This
+});
+  $('.contactfix a').on('click',function() {           
+        window.location.href = "http://127.0.0.1:8000/contact";  // Change This
+});
+  $('.wavesfix a').on('click',function() {           
+        window.location.href = "http://127.0.0.1:8000/gallery/waves";  // Change This
+});
+  $('.quarkfix a').on('click',function() {           
+        window.location.href = "http://127.0.0.1:8000/gallery/quark";  // Change This
+});
+  $('.spreefix a').on('click',function() {           
+        window.location.href = "http://127.0.0.1:8000/gallery/spree";  // Change This
+});
+  $('.fbfix a').on('click',function() {           
+        window.location.href = "https://www.facebook.com/DoPY.BITSGoa";  // Change This
+});
+  $('.twitterfix a').on('click',function() {           
+        window.location.href = "https://www.twitter.com";  // Change This
+});
+  $('.instagramfix a').on('click',function() {           
+        window.location.href = "https://www.instagram.com";  // Change This
+});
+  $('.signupfix a').on('click',function() {           
+        window.location.href = "http://127.0.0.1:8000/accounts/register";  // Change This
+});
+</script>
+
+</body>
+</html>
+    

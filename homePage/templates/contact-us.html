@@ -68,9 +68,20 @@
                 </li>
                 <li class="contactfix"><a href="contact"><i class="fa fa-phone"></i>Contact</a></li><br>
                 <br><br>
-                <input class="btn btn-primary" type="submit" value="Sign Up!" onclick="http://127.0.0.1:8000/accounts/register" />
                 <br>
                 <br>
+                 {% if request.user.is_authenticated %}
+                <input class="btn btn-primany" type="submit" value="Logout" onclick="window.location.href='http://127.0.0.1:8000/accounts/logout'">
+                {% else %}
+                <!-- <li><a href="{% url 'registration_register' %}">Register</a></li> -->
+                <input class="btn btn-primany" type="submit" value="Sign Up" onclick="window.location.href='http://127.0.0.1:8000/accounts/register'">
+                {% endif %}
+              
+
+          {% if not request.user.is_authenticated and not "/accounts/login" in request.get_full_path %}
+              <input class="btn btn-primany" type="submit" value="Login" onclick="window.location.href='http://127.0.0.1:8000/accounts/login'">
+          </form>
+          {% endif %}
                 <a href="https://www.facebook.com/DoPY.BITSGoa"><i class="fa fa-facebook" style="font-size:30px;float:right;color:white;"></i></a>
                 <a href="https://twitter.com/"><i class="fa fa-twitter" style="font-size:30px;float:right;color:white;"></i></a>
                 <a href="https://www.instagram.com/"><i class="fa fa-instagram" style="font-size:30px;float:right;color:white;"></i></a>

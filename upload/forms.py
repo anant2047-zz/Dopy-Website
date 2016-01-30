@@ -10,7 +10,7 @@ class UploadFileForm(forms.ModelForm):
  		model = UploadFile
  		widgets = {
  		'description':forms.Textarea(attrs={'cols': 80, 'rows': 20}),}
- 		fields = ['event_name','sliderImages','panelImages','storage','thumbnails','description',]
+ 		fields = ['event_name','sliderImages','panelImages','storage','thumbnails','home_slider','description',]
 
 # class SignUpForm(forms.ModelForm):
 # 	password = forms.CharField(widget=forms.PasswordInput)
