@@ -1,44 +1,62 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title></title>
-  <link rel="stylesheet" type="text/css" href="/static/gallery1/css/finalMenu.css">
-   <link href="{% static "assets/css/font-awesome.min.css" %}" rel="stylesheet">
-   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="/static/gallery1/css/finalMenu.css">
+    <link href="{% static "assets/css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "assets/css/font-awesome.min.css" %}" rel="stylesheet">
+    <link href="{% static "assets/css/style_contact.css" %}" rel="stylesheet">
+    <link href="{% static "assets/css/main.css" %}" rel="stylesheet">
+     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script src="/static/site/js/mobile.js"></script>
-    <script>
-    $(function() {
-      var pull    = $('#pull');
-        menu    = $('nav ul');
-        menuHeight  = menu.height();
+        <script>
+        $(function() {
+            var pull        = $('#pull');
+                menu        = $('nav ul');
+                menuHeight  = menu.height();
 
-      $(pull).on('click', function(e) {
-        e.preventDefault();
-        menu.slideToggle();
-      });
+            $(pull).on('click', function(e) {
+                e.preventDefault();
+                menu.slideToggle();
+            });
 
-      $(window).resize(function(){
-            var w = $(window).width();
-            if(w > 320 && menu.is(':hidden')) {
-              menu.removeAttr('style');
-            }
+            $(window).resize(function(){
+                var w = $(window).width();
+                if(w > 320 && menu.is(':hidden')) {
+                    menu.removeAttr('style');
+                }
+            });
         });
-    }
+    </script>
 
-    );
-  </script>
-</head>
+
+    <!--[if lt IE 9]>
+    <script src="{% static "js/html5shiv.js" %}"></script>
+    <script src="{% static "js/respond.min.js" %}"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
 <body>
-<div class="left-sidebar">
 
-      <div>
+    <!-- Menu -->
+     <div>
           <nav id="menu" class="left">
               <ul>
                 <li class="homefix"><a href="home" class="active"><i class="fa fa-home"></i>Home</a></li>
-                <li class="galleryfix"><a href="gallery"><i class="fa fa-camera"></i>Gallery</a></li>
+                <li class="galleryfix"><a href="gallery"><i class="fa fa-bars"></i>Gallery</a></li>
                 <li class="aboutfix"><a href="gallery"><i class="fa fa-info-circle"></i>About</a></li>
-                <li> <a href="#"><i class="fa fa-xing"></i>Our Best <i class="fa fa-caret-down"></i></a>
+                <li> <a href="#"><i class="fa fa-laptop"></i>Our Best <i class="fa fa-caret-down"></i></a>
                   <ul>
                     <li class="wavesfix"><a href="#">Waves</a></li>
                     <li class="quarkfix"><a href="#">Quark</a></li>
@@ -47,12 +65,11 @@
                 </li>
                 <li class="contactfix"><a href="contact"><i class="fa fa-phone"></i>Contact</a></li><br>
                 <br><br>
-                {% block content %}
-                {% endblock %}         
-              {% if request.user.is_authenticated %}
+                <br>
+                <br>
+                 {% if request.user.is_authenticated %}
                 <input class="btn btn-primany" type="submit" value="Logout" onclick="window.location.href='http://10.3.3.102:8001/accounts/logout'">
                 {% else %}
-                <!-- <li><a href="{% url 'registration_register' %}">Register</a></li> -->
                 <input class="btn btn-primany" type="submit" value="Sign Up" onclick="window.location.href='http://10.3.3.102:8001/accounts/register'">
                 {% endif %}
               
@@ -61,9 +78,6 @@
               <input class="btn btn-primany" type="submit" value="Login" onclick="window.location.href='http://10.3.3.102:8001/accounts/login'">
           </form>
           {% endif %}
-
-                <br>
-                <br>
                 <a href="https://www.facebook.com/DoPY.BITSGoa"><i class="fa fa-facebook" style="font-size:30px;float:right;color:white;"></i></a>
                 <a href="https://twitter.com/"><i class="fa fa-twitter" style="font-size:30px;float:right;color:white;"></i></a>
                 <a href="https://www.instagram.com/"><i class="fa fa-instagram" style="font-size:30px;float:right;color:white;"></i></a>
@@ -71,9 +85,32 @@
               <a href="#" id="showmenu"> <i class="fa fa-align-justify"></i> </a>
                </nav>
 </div>
+    
+        <div id="title"class="emerald">
+                <div class="col-sm-12" style="text-align:center;">
+                    <h1>Department of Photography</h1>
+                    <p></p>
+                </div>
+        </div>
+ 
 
-
-<script type="text/javascript" src="/static/FinalGal/js/script.js"></script>
+             <div class="row">
+                <div class="col-sm-12">
+                        <div class="col-sm-6 col-sm-offset-3">
+                          
+                            {% block content %}
+                        
+                            {% endblock %}
+                
+                </div>
+                <div>
+            </div>
+            </div>
+            <div class="col-sm-4">
+            </div>
+        </div>
+    </section>
+                <script type="text/javascript" src="/static/FinalGal/js/script.js"></script>
 
   <script>
 $("#showmenu").click(function(e){
@@ -87,7 +124,7 @@ $("#showmenu").click(function(e){
         $(this).children('i:last-child').toggleClass('fa-caret-down fa-caret-left');
       }
     });
-  $('.homefix a').on('click',function() {           
+    $('.homefix a').on('click',function() {           
         window.location.href = "http://10.3.3.102:8001/home";  // Change This
 });
   $('.aboutfix a').on('click',function() {           
@@ -121,7 +158,11 @@ $("#showmenu").click(function(e){
         window.location.href = "http://10.3.3.102:8001/accounts/register";  // Change This
 });
 </script>
-
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="{% static "assets/js/main.js" %}"></script>
+    <script src="{% static "assets/js/jquery.js" %}"></script>
+    <script src="{% static "assets/js/bootstrap.min.js" %}"></script>
+    <script src="{% static "assets/js/jquery.prettyPhoto.js" %}"></script>
+    <script src="{% static "assets/js/styl.js" %}"></script>
 </body>
 </html>
-    

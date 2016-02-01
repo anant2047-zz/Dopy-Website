@@ -102,15 +102,15 @@
          
 				 
 		          {% if request.user.is_authenticated %}
-		            <input class="btn btn-primany" type="submit" value="Logout" onclick="window.location.href='http://127.0.0.1:8000/accounts/logout'">
+		            <input class="btn btn-primany" type="submit" value="Logout" onclick="window.location.href='http://10.3.3.102:8001/accounts/logout'">
 		            {% else %}
-		            <input class="btn btn-primany" type="submit" value="Sign Up" onclick="window.location.href='http://127.0.0.1:8000/accounts/register'">
+		            <input class="btn btn-primany" type="submit" value="Sign Up" onclick="window.location.href='http://10.3.3.102:8001/accounts/register'">
 		            {% endif %}
           		
 
           {% if not request.user.is_authenticated and not "/accounts/login" in request.get_full_path %}
            
-              <input class="btn btn-primany" type="submit" value="Login" onclick="window.location.href='http://127.0.0.1:8000/accounts/login'">
+              <input class="btn btn-primany" type="submit" value="Login" onclick="window.location.href='http://10.3.3.102:8001/accounts/login'">
 
           </form>
           {% endif %}
@@ -225,7 +225,6 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    >
 
   <script>
 $("#showmenu").click(function(e){
@@ -240,25 +239,25 @@ $("#showmenu").click(function(e){
       }
     });
     $('.homefix a').on('click',function() {           
-        window.location.href = "http://127.0.0.1:8000/home";  
+        window.location.href = "http://10.3.3.102:8001/home";  
 });
   $('.aboutfix a').on('click',function() {           
-        window.location.href = "http://127.0.0.1:8000/about"; 
+        window.location.href = "http://10.3.3.102:8001/about"; 
 });
   $('.galleryfix a').on('click',function() {           
-        window.location.href = "http://127.0.0.1:8000/gallery"; 
+        window.location.href = "http://10.3.3.102:8001/gallery"; 
 });
   $('.contactfix a').on('click',function() {           
-        window.location.href = "http://127.0.0.1:8000/contact";  
+        window.location.href = "http://10.3.3.102:8001/contact";  
 });
   $('.wavesfix a').on('click',function() {           
-        window.location.href = "http://127.0.0.1:8000/gallery/waves";  
+        window.location.href = "http://10.3.3.102:8001/gallery/waves";  
 });
   $('.quarkfix a').on('click',function() {           
-        window.location.href = "http://127.0.0.1:8000/gallery/quark";  
+        window.location.href = "http://10.3.3.102:8001/gallery/quark";  
 });
   $('.spreefix a').on('click',function() {           
-        window.location.href = "http://127.0.0.1:8000/gallery/spree";  
+        window.location.href = "http://10.3.3.102:8001/gallery/spree";  
 });
   $('.fbfix a').on('click',function() {           
         window.location.href = "https://www.facebook.com/DoPY.BITSGoa"; 
@@ -270,7 +269,7 @@ $("#showmenu").click(function(e){
         window.location.href = "https://www.instagram.com";  // Change This
 });
   $('.signupfix a').on('click',function() {           
-        window.location.href = "http://127.0.0.1:8000/accounts/register";  // Change This
+        window.location.href = "http://10.3.3.102:8001/accounts/register";  // Change This
 });
 </script>
     <script src="static/assets/js/jquery-1.10.2.min.js"></script>

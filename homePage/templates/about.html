@@ -77,15 +77,15 @@
                 <br>
                 <br>
                  {% if request.user.is_authenticated %}
-                <input class="btn btn-primany" type="submit" value="Logout" onclick="window.location.href='http://127.0.0.1:8000/accounts/logout'">
+                <input class="btn btn-primany" type="submit" value="Logout" onclick="window.location.href='http://10.3.3.102:8001/accounts/logout'">
                 {% else %}
                 <!-- <li><a href="{% url 'registration_register' %}">Register</a></li> -->
-                <input class="btn btn-primany" type="submit" value="Sign Up" onclick="window.location.href='http://127.0.0.1:8000/accounts/register'">
+                <input class="btn btn-primany" type="submit" value="Sign Up" onclick="window.location.href='http://10.3.3.102:8001/accounts/register'">
                 {% endif %}
               
 
           {% if not request.user.is_authenticated and not "/accounts/login" in request.get_full_path %}
-              <input class="btn btn-primany" type="submit" value="Login" onclick="window.location.href='http://127.0.0.1:8000/accounts/login'">
+              <input class="btn btn-primany" type="submit" value="Login" onclick="window.location.href='http://10.3.3.102:8001/accounts/login'">
           </form>
           {% endif %}
                 <a href="https://www.facebook.com/DoPY.BITSGoa"><i class="fa fa-facebook" style="font-size:30px;float:right;color:white;"></i></a>
@@ -207,7 +207,7 @@
 				</div>
 			</div>
 
-	<!-- CONTACT FOOTER ---> -->
+	<!-- CONTACT FOOTER -->
 	<div id="cf">
 		<div class="container">
 			<div class="row">
@@ -251,25 +251,25 @@ $("#showmenu").click(function(e){
       }
     });
   $('.homefix a').on('click',function() {           
-        window.location.href = "http://127.0.0.1:8000/home";  // Change This
+        window.location.href = "http://10.3.3.102:8001/home";  // Change This
 });
   $('.aboutfix a').on('click',function() {           
-        window.location.href = "http://127.0.0.1:8000/about";  // Change This
+        window.location.href = "http://10.3.3.102:8001/about";  // Change This
 });
   $('.galleryfix a').on('click',function() {           
-        window.location.href = "http://127.0.0.1:8000/gallery";  // Change This
+        window.location.href = "http://10.3.3.102:8001/gallery";  // Change This
 });
   $('.contactfix a').on('click',function() {           
-        window.location.href = "http://127.0.0.1:8000/contact";  // Change This
+        window.location.href = "http://10.3.3.102:8001/contact";  // Change This
 });
   $('.wavesfix a').on('click',function() {           
-        window.location.href = "http://127.0.0.1:8000/gallery/waves";  // Change This
+        window.location.href = "http://10.3.3.102:8001/gallery/waves";  // Change This
 });
   $('.quarkfix a').on('click',function() {           
-        window.location.href = "http://127.0.0.1:8000/gallery/quark";  // Change This
+        window.location.href = "http://10.3.3.102:8001/gallery/quark";  // Change This
 });
   $('.spreefix a').on('click',function() {           
-        window.location.href = "http://127.0.0.1:8000/gallery/spree";  // Change This
+        window.location.href = "http://10.3.3.102:8001/gallery/spree";  // Change This
 });
   $('.fbfix a').on('click',function() {           
         window.location.href = "https://www.facebook.com/DoPY.BITSGoa";  // Change This
@@ -281,7 +281,7 @@ $("#showmenu").click(function(e){
         window.location.href = "https://www.instagram.com";  // Change This
 });
   $('.signupfix a').on('click',function() {           
-        window.location.href = "http://127.0.0.1:8000/accounts/register";  // Change This
+        window.location.href = "http://10.3.3.102:8001/accounts/register";  // Change This
 });
 </script>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>

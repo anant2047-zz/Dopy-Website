@@ -1,11 +1,12 @@
 from django.shortcuts import render
+from django.shortcuts import render_to_response
 from django.http import HttpResponse
 from django.template.loader import get_template
 from django.template import Context
 from django.http import HttpResponse, Http404
 from django.contrib.auth.models import User
 from django.conf import settings
-from django.core.mail import send_mail
+from django.core.mail import message
 import os,random
 
 # Create your views here.
@@ -83,8 +84,8 @@ def home(request):
 def about(request):
 	return render(request,"about.html")
 
-def contact(request):
-	return render(request,"contact-us.html")
+# def contact(request):
+# 	return render(request,"contact-us.html")
 
 def test(request):
 
@@ -147,11 +148,11 @@ def gallery(request):
 
 def contact(request):
 	form = ContactForm(request.POST or None)
-	context ={
-		"form":form,
-		"submit":True
-	}
+	submit = True
 	if form.is_valid():
+		human = True
+		print(human)
+
 		for key in form.cleaned_data:#.iteritems():
 		# 	print(key)
 			print(form.cleaned_data.get(key))
@@ -169,12 +170,25 @@ def contact(request):
 			form_fullname, 
 			form_message, 
 			form_email)
+		
 
 		send_mail(subject, contact_message, from_email, to_email, fail_silently=True)
-		context = {
 
-		}
+	# if request.POST:
+		
+	# 	if form1.is_valid():
+			
+	else:
+		form = ContactForm()
+		human = False
+		print(str(human)+" not working")
+
+	
+	# context ={
+	# 	"form":form,
+	# 	"submit":True,
+	# 		}
 
 
-
-	return render(request, "contact-us.html", context)
+	return render(request,"contact-us.html", locals())
+	# return render_to_response('contact-us.html',locals(),context)

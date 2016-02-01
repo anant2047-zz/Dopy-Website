@@ -1,6 +1,9 @@
-{% extends "base.html" %}
+{% extends "registration/registration_base.html" %}
 {% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block title %}{% trans "Logged out" %}{% endblock %}
 
 {% block content %}
-<p class='text-align-center lead'>You have successfully logged out.</p><p class='text-align-center lead'><a href="{% url 'auth_login' %}">Login</a></p></p>
+<p>{% trans "Successfully logged out" %}.</p>
 {% endblock %}
