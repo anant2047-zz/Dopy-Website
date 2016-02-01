@@ -1,55 +1,167 @@
 {% load staticfiles %}
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="{% static "img/favicon.ico" %}" rel="icon">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="/static/gallery1/css/finalMenu.css">
+    <link href="{% static "assets/css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "assets/css/font-awesome.min.css" %}" rel="stylesheet">
+    <link href="{% static "assets/css/style_contact.css" %}" rel="stylesheet">
+    <link href="{% static "assets/css/main.css" %}" rel="stylesheet">
+     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="/static/site/js/mobile.js"></script>
+        <script>
+        $(function() {
+            var pull        = $('#pull');
+                menu        = $('nav ul');
+                menuHeight  = menu.height();
 
-    <title>{% block head_title %}MVP Landing{% endblock %}</title>
+            $(pull).on('click', function(e) {
+                e.preventDefault();
+                menu.slideToggle();
+            });
 
-  <!--  <link rel="stylesheet" href="static/css/font-awesome.min.css">
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/navbar-static-top.css' %}" rel="stylesheet">
-<link href="{% static 'css/custom.css' %}" rel="stylesheet"> -->
+            $(window).resize(function(){
+                var w = $(window).width();
+                if(w > 320 && menu.is(':hidden')) {
+                    menu.removeAttr('style');
+                }
+            });
+        });
+    </script>
+
+
+    <!--[if lt IE 9]>
+    <script src="{% static "js/html5shiv.js" %}"></script>
+    <script src="{% static "js/respond.min.js" %}"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
+<body>
+
+    <!-- Menu -->
+     <div>
+          <nav id="menu" class="left">
+              <ul>
+                <li class="homefix"><a href="home" class="active"><i class="fa fa-home"></i>Home</a></li>
+                <li class="galleryfix"><a href="gallery"><i class="fa fa-bars"></i>Gallery</a></li>
+                <li class="aboutfix"><a href="gallery"><i class="fa fa-info-circle"></i>About</a></li>
+                <li> <a href="#"><i class="fa fa-laptop"></i>Our Best <i class="fa fa-caret-down"></i></a>
+                  <ul>
+                    <li class="wavesfix"><a href="#">Waves</a></li>
+                    <li class="quarkfix"><a href="#">Quark</a></li>
+                    <li class="spreefix"><a href="#">Spree</a></li>
+                  </ul>
+                </li>
+                <li class="contactfix"><a href="contact"><i class="fa fa-phone"></i>Contact</a></li><br>
+                <br><br>
+                <br>
+                <br>
+                 {% if request.user.is_authenticated %}
+                <input class="btn btn-primany" type="submit" value="Logout" onclick="window.location.href='http://10.3.3.102:8001/accounts/logout'">
+                {% else %}
+                <input class="btn btn-primany" type="submit" value="Sign Up" onclick="window.location.href='http://10.3.3.102:8001/accounts/register'">
+                {% endif %}
+              
+
+          {% if not request.user.is_authenticated and not "/accounts/login" in request.get_full_path %}
+              <input class="btn btn-primany" type="submit" value="Login" onclick="window.location.href='http://10.3.3.102:8001/accounts/login'">
+          </form>
+          {% endif %}
+                <a href="https://www.facebook.com/DoPY.BITSGoa"><i class="fa fa-facebook" style="font-size:30px;float:right;color:white;"></i></a>
+                <a href="https://twitter.com/"><i class="fa fa-twitter" style="font-size:30px;float:right;color:white;"></i></a>
+                <a href="https://www.instagram.com/"><i class="fa fa-instagram" style="font-size:30px;float:right;color:white;"></i></a>
+              </ul>
+              <a href="#" id="showmenu"> <i class="fa fa-align-justify"></i> </a>
+               </nav>
+</div>
     
-{% include "head_css.html" %}
-    
-  <style>
-{% block style %}{% endblock %}
-</style>
+        <div id="title"class="emerald">
+                <div class="col-sm-12" style="text-align:center;">
+                    <h1>Department of Photography</h1>
+                    <p></p>
+                </div>
+        </div>
+ 
 
-</head>
+             <div class="row">
+                <div class="col-sm-12">
+                        <div class="col-sm-6 col-sm-offset-3">
+                          
+                            {% block content %}
+                            {% endblock %}
+                
+                </div>
+                <div>
+            </div>
+            </div>
+            <div class="col-sm-4">
+            </div>
+        </div>
+    </section>
+                <script type="text/javascript" src="/static/FinalGal/js/script.js"></script>
 
-
-  <body>
-
-    <!-- Static navbar -->
-    {% include 'navbar.html' %}
-
-
-    <div class="container">
-
-      <!-- Main component for a primary marketing message or call to action -->
-      {% block jumbotron %}
-      
-      {% endblock %}
-
-      {% block content %}
-
-      {% endblock %}
-
-    </div> <!-- /container -->
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-   {% include "javascript.html" %}
-  </body>
+  <script>
+$("#showmenu").click(function(e){
+      e.preventDefault();
+      $("#menu").toggleClass("show");
+    });
+    $("#menu a").click(function(event){
+      event.preventDefault();
+      if($(this).next('ul').length){
+        $(this).next().toggle('fast');
+        $(this).children('i:last-child').toggleClass('fa-caret-down fa-caret-left');
+      }
+    });
+    $('.homefix a').on('click',function() {           
+        window.location.href = "http://10.3.3.102:8001/home";  // Change This
+});
+  $('.aboutfix a').on('click',function() {           
+        window.location.href = "http://10.3.3.102:8001/about";  // Change This
+});
+  $('.galleryfix a').on('click',function() {           
+        window.location.href = "http://10.3.3.102:8001/gallery";  // Change This
+});
+  $('.contactfix a').on('click',function() {           
+        window.location.href = "http://10.3.3.102:8001/contact";  // Change This
+});
+  $('.wavesfix a').on('click',function() {           
+        window.location.href = "http://10.3.3.102:8001/gallery/waves";  // Change This
+});
+  $('.quarkfix a').on('click',function() {           
+        window.location.href = "http://10.3.3.102:8001/gallery/quark";  // Change This
+});
+  $('.spreefix a').on('click',function() {           
+        window.location.href = "http://10.3.3.102:8001/gallery/spree";  // Change This
+});
+  $('.fbfix a').on('click',function() {           
+        window.location.href = "https://www.facebook.com/DoPY.BITSGoa";  // Change This
+});
+  $('.twitterfix a').on('click',function() {           
+        window.location.href = "https://www.twitter.com";  // Change This
+});
+  $('.instagramfix a').on('click',function() {           
+        window.location.href = "https://www.instagram.com";  // Change This
+});
+  $('.signupfix a').on('click',function() {           
+        window.location.href = "http://10.3.3.102:8001/accounts/register";  // Change This
+});
+</script>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="{% static "assets/js/main.js" %}"></script>
+    <script src="{% static "assets/js/jquery.js" %}"></script>
+    <script src="{% static "assets/js/bootstrap.min.js" %}"></script>
+    <script src="{% static "assets/js/jquery.prettyPhoto.js" %}"></script>
+    <script src="{% static "assets/js/styl.js" %}"></script>
+</body>
 </html>
