@@ -15,6 +15,17 @@ class Upload():
 		except OSError:
 			if not os.path.isdir(location):
 				raise
+	# def test_directory(self,path,event_name):
+	# 	print("test_directory works!")
+		
+	# 	dirs=os.listdir(path)
+	# 	for f in dirs:
+	# 		if f == event_name:
+	# 			return "True"
+	# 		else:
+	# 			return "False"
+
+
 
 	def rename(self,old_name,new_name):
 		os.rename(old_name,new_name)
@@ -61,13 +72,10 @@ class Upload():
 
 
 
-	# def indexImages(self,location):
-	# 	i = 1
-	# 	for f in os.listdir(location):
-	# 		list = f.split(".")
-	# 		print(f)
-	# 		self.rename(os.path.join(location , f),os.path.join(location , str(i) + "." + list[ len(list) - 1 ]))
-	# 		i+=1
+	def del_files(self,event_name):
+		print(os.path.join(os.path.dirname(os.path.join(settings.BASE_DIR)) ,"static_in_env","media_root" ,"events",event_name))
+		shutil.rmtree(os.path.join(os.path.dirname(os.path.join(settings.BASE_DIR)) ,"static_in_env","media_root" ,"events",event_name))
+		print(event_name+" Deleted Successfully")
 
 	def startScript(self,event_name,sliderImage,panelImage,storage,thumbnails):
 		#making event_name directory
@@ -133,11 +141,12 @@ class Upload():
 				self.move(os.path.join(os.path.dirname(os.path.join(settings.BASE_DIR)), "static_in_env","media_root" ,"temporary","storage",f ),os.path.join(os.path.dirname(os.path.join(settings.BASE_DIR)), "static_in_env","media_root" ,"events",event_name,"storage",event_name + ".rar" ))		 		
 		
 
-		# for f in os.listdir(os.path.join(os.path.dirname(os.path.join(settings.BASE_DIR)), "static_in_env","media_root" ,"temporary","home_slider")):
-		# 	if f.endswith(".zip"):
-		# 		self.move(os.path.join(os.path.dirname(os.path.join(settings.BASE_DIR)), "static_in_env","media_root" ,"temporary","home_slider",f ),os.path.join(os.path.dirname(os.path.join(settings.BASE_DIR)), "static_in_env","media_root" ,"home_slider","home_slider" + ".zip" ))
-		# 	elif f.endswith(".rar"):
-		# 		self.move(os.path.join(os.path.dirname(os.path.join(settings.BASE_DIR)), "static_in_env","media_root" ,"temporary","home_slider",f ),os.path.join(os.path.dirname(os.path.join(settings.BASE_DIR)), "static_in_env","media_root" ,"home_slider","home_slider" + ".rar" ))
+			# for f in os.listdir(os.path.join(os.path.dirname(os.path.join(settings.BASE_DIR)), "static_in_env","media_root" ,"temporary","home_slider")):
+			# 	if f.endswith(".zip"):
+			# 		self.move(os.path.join(os.path.dirname(os.path.join(settings.BASE_DIR)), "static_in_env","media_root" ,"temporary","home_slider",f ),os.path.join(os.path.dirname(os.path.join(settings.BASE_DIR)), "static_in_env","media_root" ,"home_slider","home_slider" + ".zip" ))
+			# 	elif f.endswith(".rar"):
+			# 		self.move(os.path.join(os.path.dirname(os.path.join(settings.BASE_DIR)), "static_in_env","media_root" ,"temporary","home_slider",f ),os.path.join(os.path.dirname(os.path.join(settings.BASE_DIR)), "static_in_env","media_root" ,"home_slider","home_slider" + ".rar" ))
 
-		# self.uncompressFile(os.path.join(os.path.dirname(os.path.join(settings.BASE_DIR)) , "static_in_env","media_root","home_slider",home_slider),os.path.join(os.path.dirname(os.path.join(settings.BASE_DIR)), "static_in_env","media_root" ,"home_slider" ))		 		
-		# self.remove_files(os.path.join(os.path.dirname(os.path.join(settings.BASE_DIR)) , "static_in_env","media_root","home_slider",home_slider))
+			# self.uncompressFile(os.path.join(os.path.dirname(os.path.join(settings.BASE_DIR)) , "static_in_env","media_root","home_slider",home_slider),os.path.join(os.path.dirname(os.path.join(settings.BASE_DIR)), "static_in_env","media_root" ,"home_slider" ))		 		
+			# self.remove_files(os.path.join(os.path.dirname(os.path.join(settings.BASE_DIR)) , "static_in_env","media_root","home_slider",home_slider))
+		

@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -26,11 +27,18 @@ SECRET_KEY = '-7!7=u1pe3+7$de)=q!ll7n83@1#o$t*vyslr4u2z=0o-m0hz&'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+EMAIL_USE_TLS=True
+EMAIL_HOST=''
+EMAIL_HOST_USER=''
+EMAIL_HOST_PASSWORD=''
+EMAIL_PORT=587
+
 
 
 # Application definition
 
 INSTALLED_APPS = (
+    'suit',         #third-party
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,11 +50,13 @@ INSTALLED_APPS = (
     #third-party
     'registration',
     'guardian',
-    'crispy_forms',
-
+    'crispy_forms',    
+    'newsletter',
+    'captcha',
     #local apps
     'homePage',
     'upload',
+    'services',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -138,6 +148,16 @@ ANONYMOUS_USER_ID = -1
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
 SITE_ID = 1
-LOGIN_REDIRECT_URL = '/home/'  # The page you want users to arrive at after they successful log in
+LOGIN_REDIRECT_URL = '/home'  # The page you want users to arrive at after they successful log in
 LOGIN_URL = '/accounts/login/'  # The page users are directed to if they are not logged in,
                                                                 # and are trying to access pages requiring authentication
+
+TEMPLATE_CONTEXT_PROCESSORS = TCP + (
+    'django.core.context_processors.request',
+)
+
+SUIT_CONFIG = {
+    'ADMIN_NAME': 'Yoman Admin',
+    # 'HEADER_DATE_FORMAT': 'l, j. F Y', # Saturday, 16th March 2013
+#     'HEADER_TIME_FORMAT': 'H:i',       # 18:42
+}
