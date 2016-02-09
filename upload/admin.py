@@ -19,8 +19,9 @@ class UploadFileAdmin(admin.ModelAdmin):
 	# object = UploadImage.uploadname()
 	# a,b = UploadImage.__str__()
 	# a,b = "__str__".split("======================>")
-	# list_display = ['Event','Filename'] 
-	list_display = ["__str__","event_name","description"]
+	# list_display = ['Event','Filename']
+
+	list_display = ["event_name","__str__","description"]
 	form = UploadFileForm
 	
 	# class Meta:
@@ -40,41 +41,21 @@ class UploadFileAdmin(admin.ModelAdmin):
 
 	
 	def save_model(self, request, obj, form, change=False):
-       # do any pre-save stuff here
 		print("hello before saving")
 		obj.save()
 		print("Hello")
-		# global filename
-		# filename = request.FILES['storage'].name
-		# filesize = request.FILES['storage'].size
-		# upload.main()
 		event_name = request.POST.get('event_name')
+		
 		print(event_name)
 		sliderImages = request.FILES['sliderImages'].name
 		print(request.FILES['sliderImages'].name)
 		panelImages = request.FILES['panelImages'].name
 		storage = request.FILES['storage'].name
 		thumbnails = request.FILES['thumbnails'].name
-		# home_slider = request.FILES['home_slider'].name
 		print(request)
-		# storage = filename = request.FILES['storage'].name
 		Up = Upload()
 		Up.startScript(event_name,sliderImages,panelImages,storage,thumbnails)
-		#list_display = ["__str__","filename"]
-		#list_display = ["__str__","filename"]
-		# list_display.extend(filename)
-		# list_display = ["a","b"]
-		# list_display.extend(["__str__",filename])
 
-		# filename = UploadImage
-		# for f in files:
-			# if object.endswith('.zip'):
-			# 	obj.extractall()
-			# 	print("Extracted File Successfully!")
+
 
 admin.site.register(UploadFile, UploadFileAdmin)
-
-# class EventNameAdmin(admin.ModelAdmin):
-# 		form2 = EventNameForm
-# 		list_display = ["__str__"]
-# admin.site.register(EventName, EventNameAdmin)

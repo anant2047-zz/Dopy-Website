@@ -1,34 +1,22 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
-from django.core.urlresolvers import reverse
-from django.views.generic import FormView, DetailView, ListView
+from django.shortcuts import render_to_response
+from django.http import HttpResponse
+from django.template.loader import get_template
+from django.template import Context
+from django.http import HttpResponse, Http404
+from django.contrib.auth.models import User
+from django.conf import settings
 
-from .forms import UploadImageForm
-from .models import UploadImage
+from .forms import UploadFileForm
+from .models import UploadFile
 
-class ProfileImageView(FormView):
-    template_name = 'main/profile_image_form.html'
-    form_class = UploadImageForm
+def gallerylist(request):
+    list_items=[]
+    for i in UploadFile.objects.all():
+    	list_items.append(i.event_name)
+    list_items.sort(reverse=True)
+    context={
+    "items":list_items,
+    }
 
-    def form_valid(self, form):
-        profile_image = UploadImage(
-            image=self.get_form_kwargs().get('files')['image'])
-        profile_image.save()
-        self.id = profile_image.id
-
-        return HttpResponseRedirect(self.get_success_url())
-
-    def get_success_url(self):
-        return reverse('profile_image', kwargs={'pk': self.id})
-
-class ProfileDetailView(DetailView):
-    model = UploadImage
-    template_name = 'main/profile_image.html'
-    context_object_name = 'image'
-
-
-class ProfileImageIndexView(ListView):
-    model = UploadImage
-    template_name = 'main/profile_image_view.html'
-    context_object_name = 'images'
-    queryset = UploadImage.objects.all()
+    return render(request,'gallerylist.html',context)

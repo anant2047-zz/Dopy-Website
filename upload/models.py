@@ -1,6 +1,9 @@
 from django.db import models
+from django.db.models.signals import pre_delete
+from django.db.models import signals #for connect (Method 2)
+# from django.dispatch import receiver #for receiver decorator(Method 1)
+from .upload import Upload
 import os
-
 
 class UploadFile(models.Model):
 	event_name=models.CharField(max_length=120, blank=False, null=False)
@@ -10,43 +13,17 @@ class UploadFile(models.Model):
 	thumbnails = models.FileField(upload_to='temporary/thumbnails',blank=True,null=False)
 	home_slider = models.FileField(upload_to='home_slider',blank=True,null=False)
 	description = models.CharField(max_length=200,blank=True)
+	
 
-	# timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
-	# updated = models.DateTimeField(auto_now_add=False, auto_now=True)
-
-	# def __init__(self):
-	# 	pass
-
-	# def uploadfilename(self):
-	# # 	filename = request.FILES['image'].name
-	# # 	#print(filename)
-	# # 	print("sdfsfsdf")
-	# # 	return filename
-	# 	return os.path.basename(self.image.name)
-
-	# def __str__(self):
-	# 	return '%s' %(self.event_name)
 	def __str__(self):
 		return os.path.basename(self.storage.name)
-# class SignUp(models.Model):
-# 	email = models.EmailField()
-# 	fullname = models.CharField(max_length=120, blank=True, null=True)
-# 	#password =forms.CharField(widget=forms.PasswordInput())
-# 	timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
-# 	updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+		
 
-# 	def __str__(self):
-# 		return self.email
+def delete_files(sender,instance, **kwargs):
+	# for i in UploadFile.objects.all():
+	up = Upload()
+	up.del_files(instance.event_name)
 
+signals.pre_delete.connect(delete_files,sender=UploadFile)
 
-		#return self.event_name
-		# global temp
-		# temp = self.__dict__.copy()
-		# self.__dict__.clear()
-		# # list_display = []
-		# # for key in self.__dict__:
-		# # 	list_display.append("{key}='{value}'".format(key=key, value=self.__dict__[key]))
-		# # return ', '.join(list_display)
-		# temp['event_name']=self.__dict__['event_name']
-		# temp['image']=self.__dict__['image']
 

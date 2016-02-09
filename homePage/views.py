@@ -6,7 +6,7 @@ from django.template import Context
 from django.http import HttpResponse, Http404
 from django.contrib.auth.models import User
 from django.conf import settings
-from django.core.mail import message
+from django.core.mail import send_mail
 import os,random
 
 # Create your views here.
@@ -84,6 +84,9 @@ def home(request):
 def about(request):
 	return render(request,"about.html")
 
+def portfolio(request):
+	return render(request,"portfolio.html")
+
 # def contact(request):
 # 	return render(request,"contact-us.html")
 
@@ -142,7 +145,7 @@ def gallery(request):
 		"panel_list":panel_name,
 	}
 
-	return render(request,"GalleryScrollTemplate.html",context)
+	return render(request,"GallerySlide.html",context)
 
 
 
