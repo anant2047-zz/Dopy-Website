@@ -1,0 +1,69 @@
+#horizontal {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: relative;
+    text-align: right;
+}
+#horizontal .menu_horz {
+    display: inline-block;
+    text-align: left;
+    margin-left: 2em;
+}
+#menu_horizontal a {
+    display: block;
+    text-transform: none;
+    text-decoration: none;
+    padding: .7em 0 .7em 0;
+    color: #fff;
+    text-shadow: 0 .1rem .1rem rgba(0, 0, 0, 0.5);
+}
+#menu_horizontal a:hover {
+    color: #FFCC33;
+    text-shadow: none;
+}
+/* Hide Dropdowns by Default */
+#menu_horizontal ul ul {
+    z-index: 4;
+    position: absolute;
+    margin-left: -2em;
+    display: none;
+    text-align: right;
+}
+/* Display Dropdowns on Hover */
+#menu_horizontal ul li:hover > ul {
+    display: inherit;
+}
+/* Fisrt Tier Dropdown */
+#menu_drop {
+    width: 15rem;
+    float: none;
+    display: list-item;
+    position: relative;
+    background: #fff;
+    border-bottom: solid .1rem rgba(255, 255, 255, .1);
+}
+
+
+#menu_horizontal{
+    display: inline-block;
+    float: right;
+}
+.main-menu {
+    padding: 0 7rem;
+    margin: 0.3rem auto;
+}
+/*Fixed header class*/
+.fixed {
+    position: fixed;
+    height: auto;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    color: #fff !important;
+    background: transparent;
+}
+.menu_horz #menu-active {
+    color: #FFCC33;
+}
+
