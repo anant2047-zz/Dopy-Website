@@ -1,0 +1,106 @@
+<!--BASE MENU-->
+
+    <!-- OFFCANVAS MENU -->
+    <div>
+      <nav id="menu" class="left">
+              <ul>
+                <li class="homefix"><a href="home" class="active"><i class="fa fa-home"></i>Home</a></li>
+                {% if user.is_authenticated %}
+                 <li> <a href="#"><i class="fa fa-user"></i>Hey!{{user}}<i class="fa fa-caret-down"></i></a>
+                  <ul>
+                    <li><a href="users/profile/" onclick="window.location.href='https://www.dopybitsgoa.com/users/profile/'">Profile</a></li>
+                    <li><a href="accounts/logout" onclick="window.location.href='https://www.dopybitsgoa.com/accounts/logout'">Logout</a></li>
+                  </ul>
+                </li>
+                {% endif %}
+                <li class="eventsfix"><a href="events"><i class="fa fa-camera"></i>Events</a></li>
+                <li> <a href="#"><i class="fa fa-xing"></i>Our Best <i class="fa fa-caret-down"></i></a>
+                  <ul>
+                    <li class="wavesfix"><a href="events/waves">Waves</a></li>
+                    <li class="quarkfix"><a href="events/quark">Quark</a></li>
+                    <li class="spreefix"><a href="events/spree">Spree</a></li>
+                  </ul>
+                </li>
+                <li class="servicefix"><a href="services"><i class="fa fa-gg"></i>Services</a></li>
+                <li class="archivefix"><a href="archive"><i class="fa fa-archive"></i>Archive</a></li>
+                <li class="aboutfix"><a href="about"><i class="fa fa-info-circle"></i>About</a></li>
+                <li class="contactfix"><a href="contact"><i class="fa fa-phone"></i>Contact</a></li>
+                <br>
+
+                <br><br>
+                {% block content %}
+                {% endblock %}
+         
+              {% if request.user.is_authenticated %}
+                <input class="btn btn-primary" type="submit" value="Logout" onclick="window.location.href='https://www.dopybitsgoa.com/accounts/logout'">
+                {% else %}
+                <input class="btn btn-primary" type="submit" value="Sign Up" onclick="window.location.href='https://www.dopybitsgoa.com/accounts/register'">
+                {% endif %}
+              
+
+          {% if not request.user.is_authenticated and not "/accounts/login" in request.get_full_path %}
+            
+              <input class="btn btn-primary" type="submit" value="Login" onclick="window.location.href='https://www.dopybitsgoa.com/accounts/login'">
+          {% endif %}
+          </form>
+          
+
+                <br>
+                <br>
+                <a class="facebookfix" href="https://facebook.com/DoPY.BITSGoa"><i class="fa fa-facebook" style="font-size:30px;float:right;color:white;"></i></a>
+                <a class="twitterfix" href="https://https://twitter.com/dopybitsgoa?lang=en/"><i class="fa fa-twitter" style="font-size:30px;float:right;color:white;"></i></a>
+                <a class="flickrfix" href="https://www.flickr.com/groups/dopybitsgoa/"><i class="fa fa-flickr" style="font-size:30px;float:right;color:white;"></i></a>
+              </ul>
+              <a href="" id="showmenu"> <i class="fa fa-align-justify fa-lg"></i> </a>
+              
+               </nav>
+
+               </div>
+<!-- OFFCANVAS MENU END-->
+    
+     <!-- HORIZONTAL MENU -->
+      <!-- Header -->
+      <header>
+        <div class="transition header fixed" >
+
+          <!-- Menu -->
+            <nav id="menu_horizontal" class="col-md-4 col-sm-4 col-xs-12">
+              <ul id="horizontal" class="hidden-xs">
+              {% if request.user.is_authenticated %}
+                 <li class="menu_horz">
+                      <a href="" <i class="fa fa-user"></i></a>
+                      <ul>
+                      <li class="menu_drop"><a style="text-transform:capitalize;" href="https://www.dopybitsgoa.com/users/profile/">Hey! {{request.user}}</a></li>
+                      <!-- <li class="menu_drop"><a href="https://www.dopybitsgoa.com/users/{{request.user}}/">Profile</a></li>
+                      <li class="menu_drop"><a href="https://www.dopybitsgoa.com/users/{{request.user}}/settings/">Settings</a></li> -->
+                      <li class="menu_drop"><a href="https://www.dopybitsgoa.com/accounts/logout">Logout</a></li>
+                      </ul>
+              </li>
+                 {% endif %}
+              
+                <li class="menu_horz" style="margin-top: 10px;"><a id="menu-active" href="https://www.dopybitsgoa.com/home">HOME</a></li>
+                <li class="menu_horz"><a href="https://www.dopybitsgoa.com/events">EVENTS</a></li>
+                <li class="menu_horz"><a href="#">OUR BEST</a>
+                <!-- Drop Down -->
+                  <ul>
+                    <li class="menu_drop"><a href="https://www.dopybitsgoa.com/events/best of waves">WAVES</a></li>
+                    <li class="menu_drop"><a href="https://www.dopybitsgoa.com/events/best of quark">QUARK</a></li>
+                    <li class="menu_drop"><a href="https://www.dopybitsgoa.com/events/best of spree">SPREE</a></li>
+                  </ul>
+                 
+                </li>
+                <li class="menu_horz"><a href="https://www.dopybitsgoa.com/services">SERVICES</a>
+                <li class="menu_horz"><a href="https://www.dopybitsgoa.com/archive">ARCHIVE</a>
+                <li class="menu_horz"><a href="#" onclick='window.location.href="https://www.dopybitsgoa.com/contact#about"'>ABOUT</a></li>
+                <li class="menu_horz"><a href="#" onclick='window.location.href="https://www.dopybitsgoa.com/contact#contact"'>CONTACT</a></li> 
+                
+             
+              </ul>
+            </nav>
+          <!-- /Menu -->
+        </div>
+        </header>
+
+
+      <!-- HORIZONTAL MENU END -->
+

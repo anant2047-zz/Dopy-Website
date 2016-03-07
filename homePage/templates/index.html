@@ -1,0 +1,275 @@
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="theme-color" content="#ef4138">
+    <link rel="icon" type="image/png" href="/static/services/gallery/favicon.png">
+
+
+    <title>DoPy</title>
+
+    <!-- Bootstrap core CSS -->
+    {% include "menu_css.html" %}
+   
+    <link href="{% static "assets/css/main.css" %}" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" type="text/css" href="/static/fullslider/css/style_home.css"> -->
+    <link rel="stylesheet" type="text/css" href="/static/fullslider/css/style.css">
+    <link rel="stylesheet" href="/static/services/css/style.css">
+
+    <!-- Plugins -->
+    <link rel="stylesheet" href="/static/services/css/jquery.fullPage.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/services/css/photoswipe.css">
+    <link rel="stylesheet" href="/static/services/css/default-skin.css">
+    <link rel="stylesheet" href="/static/services/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/carousel.css">
+    <style>#embed-container { position: relative; padding-bottom: 28.125%;padding-top: 30px; height: 0; overflow: hidden; max-width: 95%; } #embed-container iframe, #embed-container object, #embed-container embed { position: absolute; top: 0; left: 0; width: 95%; height: 100%; }</style>
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="/static/assets/js/modernizr.custom.js"></script>
+
+  </head>
+
+  <body>
+
+
+   <div>
+      {% include "menu.html" %}    
+      </div>
+<!-- SLIDER-DESKTOP -->
+{% if flavour == "full" %}
+
+  <div id="wowslider-container1">
+
+
+<div class="ws_images">
+
+
+<ul>
+<li><img src="/media/homepage/sliderImages/img/{{first_image}}" alt="1" title="1" id="wows1_1"/></li>
+	{% for p,t in slider_list %} 
+      <li><img src="/media/homepage/sliderImages/img/{{p}}" alt="{{t}}" title="{{t}}" id="wows1_{{t}}"/></li>
+    {% endfor %}
+	</div>
+		
+
+    <div class="ws_bullets">
+    <div>
+    <a href="#" title = "1" ><span><img src="/media/homepage/thumbnails/img/{{first_thumbnail}}" alt="1"/></span></a>
+      {% for o,l in thumbnails_list %}
+        <a href="#" title = {{l}} ><span><img src="/media/homepage/thumbnails/img/{{o}}" alt={{l}}/>1</span></a>
+      {% endfor %}
+    </div>
+  </div>
+
+	</div></div><div class="ws_script" style="position:absolute;left:-99%"><a href=""></a></div>
+<div class="ws_shadow"></div>
+</div>	
+<!--<script type="text/javascript" src="/static/fullslider/js/wowslider_home.js"></script>
+<script type="text/javascript" src="/static/fullslider/js/script_home.js"></script>-->
+<script type="text/javascript" src="/static/fullslider/js/wowslider.js"></script>
+<script type="text/javascript" src="/static/fullslider/js/script.js"></script>
+
+<!-- SLIDER_DESKTOP END -->
+{% else %}
+
+
+<!-- SLIDER-MOBILE -->
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        {% for p,t in slider_list %}
+        <li data-target="#myCarousel" data-slide-to="{{t}}"></li>
+       	{% endfor %}
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img class="first-slide" src="/media/homepage/sliderImages/img/{{first_image}}" alt="First slide">
+        </div>
+        {% for p,t in slider_list %}
+        <div class="item">
+          <img class="second-slide" src="/media/homepage/sliderImages/img/{{p}}" alt="Second slide">
+        </div>
+        {% endfor %}
+
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+
+<!-- SLIDER-MOBILE END -->
+{% endif %}
+	<!-- Menu -->
+	<div class="left-sidebar">
+	
+
+     <!--MENU WAS HERE-->
+	
+	<!-- MAIN IMAGE SECTION -->
+	
+
+	<!-- WELCOME SECTION -->
+    <div class="container">
+      <div class="row mt">
+      	<div class="col-lg-8">
+	        <h2>From DoPy, with Love &amp;Prowess!</h2>
+	        <h4>Latest Releases</h4>
+      	</div>
+      </div><!-- /row -->
+    </div><!-- /.container -->
+    
+    <!-- PORTFOLIO SECTION -->
+    <div id="portfolio">
+    	<div class="container"
+	    	<div class="row mt">
+				<ul class="grid effect-2" id="grid">
+					
+					{% for p,t in panel_list %}
+					<li><a href="/events/{{p}}" style="text-transform: capitalize;"><img src="/media/events/{{p}}/thumbnails/img/{{t}}">{{p}}</img></a></li>
+					{% endfor %}
+				</ul>
+	    	</div><!-- row -->
+	    </div><!-- container -->
+    </div><!-- portfolio -->
+	<hr>
+	<!-- BLOG POSTS -->
+  <div style="text-align: center;">
+				<h2>VIDEOS</h2>
+		<!-- col-lg-12 -->
+				<h4>Latest videos by DoPy</h4>
+        </div>
+			<!-- col-lg-8-->
+<!-- row -->
+		<div class="container-fluid">
+		<div class="row">
+
+				
+        <div class="col-lg-4 col-sm-4" id="embed-container">
+            <a><iframe src="https://www.youtube.com/embed/p6r6hW1jyyU?autoplay=0" frameborder="0" allowfullscreen  alt="" >
+               </iframe>
+            </a>  
+            <hr>       
+          </div>
+				
+				
+        <div class="col-lg-4 col-sm-4" id="embed-container">
+       
+            <a><iframe src="https://www.youtube.com/embed/zL55IcNiM9I?autoplay=0"  frameborder="0" allowfullscreen  alt="" >
+               </iframe>
+            </a>
+            <hr>
+           
+          </div>
+          
+				
+				
+        <div class="col-lg-4 col-sm-4" id="embed-container">
+
+            <a><iframe src="https://www.youtube.com/embed/yDokRFKjcI4?autoplay=0" frameborder="0" allowfullscreen  alt="" >
+               </iframe>
+            </a>
+           <hr>
+          </div>
+          
+
+		</div><!-- row -->
+	</div><!-- container -->
+
+	<hr>
+	
+	
+	
+<!-- 	SOCIAL FOOTER -->
+	<div id="sf">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 dg" style="height: 200px;text-align: center;">
+					
+					<a href="https://www.facebook.com/DoPY.BITSGoa"><h4 class="ml">FACEBOOK</h4><i class="fa fa-facebook"></i></a>
+					<a href="https://www.facebook.com/DoPY.BITSGoa"></a>
+				</div>
+				<div class="col-lg-4 lg" style="height: 200px;text-align: center;">
+					
+				<a href="https://twitter.com/dopybitsgoa?lang=en"><h4 class="ml">TWITTER</h4><i class="fa fa-twitter"></i></a>
+					<a href="https://twitter.com/dopybitsgoa?lang=en"></a>
+				</div>
+				<div class="col-lg-4 dg" style="height: 200px;text-align: center;">
+					
+					<a href="https://www.flickr.com/groups/dopybitsgoa/"><h4 class="ml">FLICKR</h4><i class="fa fa-flickr"></i></a>
+					<a href="https://www.flickr.com/groups/dopybitsgoa/"></a>
+				</div>
+<br><br><hr>
+			</div>
+			<div class="container-fluid" style="background-color:#222 ;text-align: center;float: bottom;margin-bottom: -40px;" >
+          <p>© DoPy {% now "Y" %}. All rights reserved.</p>
+        </div>
+      </div>
+      </div>
+    
+
+      <!-- /END THE FEATURETTES -->
+
+      <!-- FOOTER -->
+      
+      
+      
+        
+	
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+  {% include "menu_js.html" %}
+    <script src="{% static "assets/js/bootstrap.min.js" %}"></script>
+    <script src="{% static "assets/js/main.js" %}"></script>
+  	<script src="{% static "assets/js/masonry.pkgd.min.js" %}"></script>
+  	<script src="{% static "assets/js/imagesloaded.js" %}"></script>
+    <script src="{% static "assets/js/classie.js" %}"></script>
+	  <script src="{% static "assets/js/AnimOnScroll.js" %}"></script>
+	  <script type="text/javascript" src="/static/services/js/website-smooth-scroll.js"></script>
+	<script>
+		new AnimOnScroll( document.getElementById( 'grid' ), {
+			minDuration : 0.4,
+			maxDuration : 0.7,
+			viewportFactor : 0.2
+		} );
+	</script>
+
+    <!-- Plugins -->
+      <script type="text/javascript" src="/static/services/js/jquery.fullPage.min.js"></script>
+      <script type="text/javascript" src="/static/services/js/imagesloaded.pkgd.min.js"></script>
+      <script type="text/javascript" src="/static/services/js/masonry.js"></script>
+      <script type="text/javascript" src="/static/services/js/website-smooth-scroll.js"></script>
+      <script type="text/javascript" src="/static/services/js/photoswipe.min.js"></script>
+      <script type="text/javascript" src="/static/services/js/photoswipe-ui-default.min.js"></script>
+      <script>window.jQuery || document.write('<script src="static/assets/js/jquery-1.10.2.min.js"><\/script>')</script>
+    <script src="static/assets/js/bootstrap.min.js"></script>
+
+    <!-- Main js -->
+      <script src="/static/services/js/main.js"></script>
+  </body>
+</html>

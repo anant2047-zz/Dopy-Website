@@ -1,0 +1,92 @@
+
+
+<!-- Menu JavaScript -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script>
+    $(function() {
+      var pull    = $('#pull');
+        menu    = $('nav ul');
+        menuHeight  = menu.height();
+
+      $(pull).on('click', function(e) {
+        e.preventDefault();
+        menu.slideToggle();
+      });
+
+      $(window).resize(function(){
+            var w = $(window).width();
+            if(w > 320 && menu.is(':hidden')) {
+              menu.removeAttr('style');
+            }
+        });
+    });
+  </script>
+
+  <script>
+$("#showmenu").click(function(e){
+      e.preventDefault();
+      $("#menu").toggleClass("show");
+    });
+    $("#menu a").click(function(event){
+      event.preventDefault();
+      if($(this).next('ul').length){
+        $(this).next().toggle('fast');
+        $(this).children('i:last-child').toggleClass('fa-caret-down fa-caret-left');
+      }
+    });
+
+    $('.homefix a').on('click',function() {           
+        window.location.href = "https://www.dopybitsgoa.com/home";  
+});
+  $('.aboutfix a').on('click',function() {           
+        window.location.href = "https://www.dopybitsgoa.com/contact#about"; 
+});
+  $('.archivefix a').on('click',function() {           
+        window.location.href = "https://www.dopybitsgoa.com/archive"; 
+});
+  $('.eventsfix a').on('click',function() {           
+        window.location.href = "https://www.dopybitsgoa.com/events"; 
+});
+  $('.contactfix a').on('click',function() {           
+        window.location.href = "https://www.dopybitsgoa.com/contact#contact";  
+});
+  $('.wavesfix a').on('click',function() {           
+        window.location.href = "https://www.dopybitsgoa.com/events/best of waves";  
+});
+  $('.quarkfix a').on('click',function() {           
+        window.location.href = "https://www.dopybitsgoa.com/events/best of quark";  
+});
+  $('.spreefix a').on('click',function() {           
+        window.location.href = "https://www.dopybitsgoa.com/events/best of spree";  
+});
+   $('.servicefix a').on('click',function() {           
+        window.location.href = "https://www.dopybitsgoa.com/services";
+});
+  $('.facebookfix').on('click',function() {           
+        window.location.href = "https://facebook.com/DoPY.BITSGoa"; 
+});
+  $('.twitterfix').on('click',function() {           
+        window.location.href = "https://twitter.com/dopybitsgoa?lang=en/";
+});
+  $('.flickrfix').on('click',function() {           
+        window.location.href = "https://www.flickr.com/groups/dopybitsgoa/";  
+});
+  $('.signupfix a').on('click',function() {           
+        window.location.href = "https://www.dopybitsgoa.com/accounts/register";
+});
+var lastScrollTop = 0;
+$(window).scroll(function(event){
+   var st = $(this).scrollTop();
+   if (st > lastScrollTop){
+       // downscroll code
+       $('.fixed').css('position','absolute');
+   } else {
+      // upscroll code
+      $('.fixed').css('position','fixed');
+   }
+   lastScrollTop = st;
+});
+</script>
+
