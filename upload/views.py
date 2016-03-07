@@ -19,4 +19,4 @@ def gallerylist(request):
     "items":list_items,
     }
 
-    return render(request,'gallerylist.html',context)
+    return render(request,'gallerylist_test.html',context)

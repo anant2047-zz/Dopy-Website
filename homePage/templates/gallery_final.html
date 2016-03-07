@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Document Settings -->
+
+		<meta charset="utf-8" />
+	
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<meta name="theme-color" content="#ef4138">
+		<meta property="og:image" content="/media/events/{{title}}/thumbnails/img/{{facebook}}">
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/png" href="/static/services/gallery/favicon.ico">
+
+		<!-- Page Title -->
+		<title>{{title}}</title>
+
+		<!-- Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,400italic,600,700,900,200' rel='stylesheet' type='text/css'>
+
+		<!-- Bootstrap -->
+		{% include "menu_css.html" %}
+		 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+		<!-- Custom css file -->
+		<link rel="stylesheet" href="/static/services/css/style.css">
+
+		<!-- Plugins -->
+		<link rel="stylesheet" href="/static/services/css/jquery.fullPage.css">
+		<link rel="stylesheet" href="/static/services/css/photoswipe.css">
+		<link rel="stylesheet" href="/static/services/css/default-skin.css">
+		<link rel="stylesheet" href="/static/services/css/animate.css">
+	</head>
+	<body>
+	<!-- Container -->
+		<div class="container">
+
+		<!--Menu -->
+		{% include "menu.html" %}		
+			
+		<!--Menu -->
+
+		<!-- Header -->
+			<header class="transition header">
+				<div class="parallax">
+					<div class="darker"></div>
+				</div>
+				<div class="main-menu">
+					<div id="logo">
+						<!-- <a href="" onclick="window.location.href='https://dopybitsgoa.com/'">
+							<img src="/static/services/gallery/logo.svg" alt="dopy-logo">
+						</a> -->
+					</div>
+
+				<!-- Menu -->
+		
+				</div>
+				<div class="item-category" style="color:#f7f7f7;">
+				<hr>
+					<h1>gallery</h1>
+					<p></p>
+					<hr>
+					<div class="border">
+						<div></div>
+					</div>
+				</div>
+			</header>
+		<!-- /Header -->
+		
+		</div>
+		<!--Content-->
+			<main class="content">
+			
+			<div class="row">
+			<div class="col-lg-6">
+				<!-- <div style="display:inline-block;float:left;background-color:#d2322d;margin-left: 0px;"> -->
+			<input class="btn btn-danger" type="submit" value="Events" style="float:left;background-color:#d2322d" onclick="window.location.href='https://dopybitsgoa.com/events'">
+			<!-- </div> -->
+			</div>
+			  {% if request.user.is_authenticated %}
+			  <div class="col-lg-6">
+ 				
+           			{% if download_button == 'True' %}
+           				<input class="btn btn-danger" type="submit" value="DOWNLOAD" style="float:right;background-color:#d2322d;" onclick="window.location.href=""" data-toggle="modal" data-target="#download" >
+           				<div class="modal fade" id="download">
+           				
+        					<div class="modal-dialog">
+          						<div class="modal-content">
+            						<div class="modal-header">
+              							<h4 class="modal-title">Download links</h4>
+            						</div>
+            						<div class="modal-body">
+              							<ul style="list-style-type: none;">
+                						{% for link_present,dl_link,day in link %}
+                							{% if link_present == 'True' %}
+                  								<li><a href="{{dl_link}}"><span class = "glyphicon glyphicon-link">{{day}}</a></li>
+                							{% endif %}
+
+                						{% endfor %}
+              							</ul>
+            							<div>
+           							 		<div class="modal-footer">
+              									<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            								</div>
+            							</div>
+            						</div>
+        						</div>
+          					</div>
+      					</div>
+      				
+      			</div>
+			</span>
+			</div>
+			{% endif %}
+			{% else %}
+			{% if download_button == 'True' %}
+
+			<div class="col-lg-6">
+				<input class="btn btn-danger" type="submit" value="Download All" onclick="window.location.href='https://dopybitsgoa.com/accounts/login'" style="float:right;border-radius:20px;background-color:#d2322d;">
+			</div>
+			{% endif %}
+			{% endif %}
+			</div>
+			</div>
+			
+			
+			
+			
+
+
+			<!-- Row -->
+				<div class="masonry gallery row">
+
+
+				<!-- Grid Item-->
+				{% for o,p,t,q in data %}
+			
+					<figure class="grid-item col-md4 col-sm-4 col-xs-12">
+
+						<a href="/media/events/{{title}}/panelImages/img/{{o}}" itemprop="contentUrl" data-size="{{t}}x{{q}}">
+							<img src="/media/events/{{title}}/thumbnails/img/{{p}}" itemprop="thumb" alt="Image description" />
+						</a>
+						
+						<figcaption itemprop="caption description" style="text-transform: capitalize;">@{{title}}</figcaption>
+					</figure>
+				{% endfor %}
+				<!-- /Grid Item-->
+
+				</div>
+			<!-- /Row -->
+
+			<!-- Root element of PhotoSwipe. Must have class pswp. -->
+				<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+				    <!-- Background of PhotoSwipe. 
+				         It's a separate element as animating opacity is faster than rgba(). -->
+				    <div class="pswp__bg"></div>
+				    <!-- Slides wrapper with overflow:hidden. -->
+				    <div class="pswp__scroll-wrap">
+				        <!-- Container that holds slides. 
+				            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+				            Don't modify these 3 pswp__item elements, data is added later on. -->
+				        <div class="pswp__container">
+				            <div class="pswp__item"></div>
+				            <div class="pswp__item"></div>
+				            <div class="pswp__item"></div>
+				        </div>
+				        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+				        <div class="pswp__ui pswp__ui--hidden">
+				            <div class="pswp__top-bar">
+				                <!--  Controls are self-explanatory. Order can be changed. -->
+				                <div class="pswp__counter"></div>
+				                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+				                <button class="pswp__button pswp__button--share" title="Share"></button>
+				                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+				                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+				                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+				                <!-- element will get class pswp__preloader active when preloader is running -->
+				                <div class="pswp__preloader">
+				                    <div class="pswp__preloader__icn">
+				                      <div class="pswp__preloader__cut">
+				                        <div class="pswp__preloader__donut"></div>
+				                      </div>
+				                    </div>
+				                </div>
+				            </div>
+				            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+				                <div class="pswp__share-tooltip"></div> 
+				            </div>
+				            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+				            </button>
+				            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+				            </button>
+				            <div class="pswp__caption">
+				                <div class="pswp__caption__center"></div>
+				            </div>
+				        </div>
+				    </div>
+				</div>
+			<!-- /Root element of PhotoSwipe. Must have class pswp. -->
+
+			<!-- Back to top button -->
+				<a href="#" class="back-top btn">
+					<i class="fa fa-angle-up fa-2x"></i>
+				</a>
+			<!-- /Back to top button -->
+
+			<!-- Footer -->
+				
+			<!-- /Footer -->
+				
+			</div>
+		<!-- /Content -->
+
+		</main>
+	<!-- /Container -->
+	<div style="background-color: #222;width: 100%;margin-bottom: -50px; text-align: center;">
+          <p style="padding-top: 20px;">© DoPy {% now "Y" %}. All rights reserved.</p><hr>
+          <p>Developed By</p>
+          <div class="container" style="background-color: #222;">
+            <div class="col-md-4 col-sm-6 col-xs-12" style="float: left;">
+           <a href="https://www.facebook.com/Gamesterassassin23"><h5>Snimarpal Singh </h5></a>
+          <p >snimar23@gmail.com</p>
+          <p>+91 7057414472</p>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12" style="float: right;">
+          <a href="https://www.facebook.com/anant.sharma.108"><h5 >Anant Sharma</h5></a>
+          <p>anant.2047@gmail.com</p>
+          <p>+91 7057422307</p>
+          </div>
+        </div>
+
+	<!-- JS -->
+	{% include "menu_js.html" %}
+
+		<!-- jquery-1.11.3.min js -->
+			<script type="text/javascript" src="/static/services/js/jquery-1.11.3.min.js"></script>
+
+		<!-- Plugins -->
+			<script type="text/javascript" src="/static/services/js/jquery.fullPage.min.js"></script>
+			<script type="text/javascript" src="/static/services/js/imagesloaded.pkgd.min.js"></script>
+			<script type="text/javascript" src="/static/services/js/masonry.js"></script>
+			<script type="text/javascript" src="/static/services/js/website-smooth-scroll.js"></script>
+			<script type="text/javascript" src="/static/services/js/photoswipe.min.js"></script>
+			<script type="text/javascript" src="/static/services/js/photoswipe-ui-default.min.js"></script>
+			 
+		<!-- Main js -->
+			<script src="/static/services/js/main.js"></script>
+
+	</body>
+</html>

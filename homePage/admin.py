@@ -1,14 +1,12 @@
 from django.contrib import admin
 # from .forms import SignUpForm
-# from .models import SignUp
+from .models import HomePage
 
 # Register your models here.
-# class SignUpAdmin(admin.ModelAdmin):
-# 	list_display = ["email", "timestamp", "updated"]
-# 	# class Meta:
-# 	# 	model = SignUp
-# 	form = SignUpForm
+class HomePageAdmin(admin.ModelAdmin):
+	list_display = ["__str__","sliderImages"]
+	model = HomePage
 
 
 
-# admin.site.register(SignUp, SignUpAdmin)
+admin.site.register(HomePage, HomePageAdmin)

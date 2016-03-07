@@ -1,0 +1,17 @@
+Django==1.8
+django-crispy-forms==1.6.0
+django-guardian==1.4.1
+django-recaptcha==1.0.5
+django-registration-redux==1.4
+django-suit==0.2.17
+enum34==1.1.2
+idna==2.0
+ipaddress==1.0.16
+patool==1.12
+Pillow==3.1.1
+pyasn1==0.1.9
+pycparser==2.14
+pytz==2015.7
+six==1.10.0
+sorl-thumbnail==12.3
+wheel==0.29.0

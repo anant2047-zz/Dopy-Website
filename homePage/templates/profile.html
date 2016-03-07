@@ -1,7 +1,18 @@
 {% extends "base.html" %}
-{% load i18n %}
-
-{% block title %}Account Profile{% endblock %}
+{% load crispy_forms_tags %}
 
 {% block content %}
+<h2>Profile:{{user}}</h2>
+
+{% for field in form %}
+{{field.error}}
+{% endfor %}
+
+<form action="/users/profile/" method="post">{% csrf_token %}
+
+{{form|crispy}}
+
+<input type="submit" value="Update" class="btn btn-primary">
+</form>
+
 {% endblock %}

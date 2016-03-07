@@ -5,22 +5,24 @@
 		<!-- Document Settings -->
 
 		<meta charset="utf-8" />
-		<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+		<!--[if lt IE 9]><script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="keywords" content="" />
 		<meta name="description" content="" />
+		<meta name="theme-color" content="#ef4138">
 
 		<!-- Favicon -->
-		<link rel="icon" type="image/png" href="/static/services/gallery/favicon.ico">
+		<link rel="icon" type="image/png" href="/static/services/gallery/favicon.png">
 
 		<!-- Page Title -->
-		<title>Alex Zane - Photography Portfolio</title>
+		<title>Services|DoPy</title>
 
 		<!-- Google Fonts -->
 		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,400italic,600,700,900,200' rel='stylesheet' type='text/css'>
 
 		<!-- Bootstrap -->
+		{% include "menu_css.html" %}
 		<link rel="stylesheet" href="/static/services/css/bootstrap.css">
 
 		<!-- Custom css file -->
@@ -28,7 +30,7 @@
 
 		<!-- Plugins -->
 		<link rel="stylesheet" href="/static/services/css/jquery.fullPage.css">
-		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="/static/services/css/photoswipe.css">
 		<link rel="stylesheet" href="/static/services/css/default-skin.css">
 		<link rel="stylesheet" href="/static/services/css/animate.css">
@@ -46,37 +48,7 @@
 			<main class="container">
 
 			<!-- Mobile Menu -->		
-				<div class="mobile-menu-overlay transition">
-					<div class="mobile-menu">
-						<i class="fa fa-times fa-2x"></i>
-					</div>
-					<ul class="mobile-menu-content">
-						<li class="mobile-menu-item">
-							<a href="home">home</a>
-						</li>
-						<li class="mobile-menu-item">
-							<a href="#" class="dropdown">blog</a>
-							<ul class="mobile-submenu">
-								<li><a href="blog-full-width.html">Blogs</a></li>
-								
-				            </ul>
-						</li>
-						<li class="mobile-menu-item">
-							<a href="#" class="dropdown">gallery</a>
-							<ul class="mobile-submenu">
-				                <li><a href="gallery.html">Gallery</a></li>
-				                
-				            </ul> 
-						</li>
-						<li class="mobile-menu-item">
-							<a href="about">about me</a>
-						</li>
-						<li class="mobile-menu-item">
-							<a href="contact">contact</a>
-						</li>
-					</ul>
-				</div>
-			<!-- /Mobile Menu -->
+				{% include "menu.html" %}
 
 			<!-- Header -->
 				<header class="transition header fixed">
@@ -87,31 +59,7 @@
 							</a>
 						</div> -->
 					<!-- Menu -->
-						<nav id="menu" class="col-md-10 col-sm-10">
-							<ul class="hidden-xs">
-								<li><a class="menu-active" href="index.html">Home</a></li>
-								<li><a href="#">Blog</a>
-								<!-- Drop Down -->
-									<ul>
-										<li><a href="blog-full-width.html">full width</a></li>
-										
-
-						            </ul> 
-								</li>
-								<li><a href="#">Gallery</a>
-								<!-- Drop Down -->
-									<ul>
-						                <li><a href="gallery.html">2 column</a></li>
-						               
-						            </ul>  
-								</li>
-								<li><a href="about.html">About Me</a></li>
-								<li><a href="contact.html">Contact</a></li> 
-							</ul>
-							<div class="mobile-menu col-xs-2 pull-right visible-xs">
-								<i class="fa fa-bars fa-2x"></i>
-							</div>     
-						</nav>
+						
 					<!-- /Menu -->
 
 					</div>
@@ -138,9 +86,10 @@
 					</div>
 						<div class="cover-titles">
 							<div class="align-left">	
-								<p>beautiful</p>		
+								<p>beautiful</p>
+								<h1 class="title">Event<h1>		
 								<h1 class="title">Photography</h1>
-								<p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary</p>	
+								<p>We deliver the Best in Class Photography</p>	
 								<a href="photography" class="btn">
 									<span>Take a look</span>
 									<i class="fa fa-arrow-right"></i>
@@ -168,8 +117,8 @@
 						<div class="cover-titles">
 							<div class="align-left">	
 								<p>amazing</p>				
-								<h1 class="title">Advertisements</h1>
-								<p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary</p>
+								<h1 class="title">Advertising</h1>
+								<p>Most immersive Advertisement experience with industry standard softwares and equipment</p>
 								<a href="advertising" class="btn">
 									<span>Take a look</span>
 									<i class="fa fa-arrow-right"></i>
@@ -198,7 +147,7 @@
 							<div class="align-left">	
 								<p>awesome</p>				
 								<h1 class="title">Weddings</h1>
-								<p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary</p>
+								<p>We capture the most auspecious moments with best perspectives</p>
 								<a href="weddings" class="btn">
 									<span>Take a look</span>
 									<i class="fa fa-arrow-right"></i>
@@ -225,32 +174,35 @@
 					</div>
 						<div class="cover-titles">
 							<div class="align-left">	
-								<p>best</p>				
+								<p>TRY US</p>				
 								<h1 class="title">Request</h1>
-								<p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary</p>
-								<a href="Request" class="btn">
+								<p>Hire Us for more diverse events</p>
+								<a href="https://dopybitsgoa.com/contact#contact" class="btn">
 									<span>Take a look</span>
 									<i class="fa fa-arrow-right"></i>
 								</a>									
 							</div>
-						</div>		
+						</div>
+						<div style="width: 100%;text-align: center;">
+          
+          
+          
+          
+
+        </div>		
 					</section>
 				<!-- /Section Four -->
 
 				</section>
 			<!-- /Content -->
 
-			<!-- Footer -->
-				<footer id="footer" class="fixed white">
-					<p>© DoPy 2016. All rights reserved.</p>
-				</footer>
-			<!-- /Footer -->
-
+			
 			</main>
 		<!-- /Container -->
+		<footer id="footer" style="padding-top: 200px;"><p>© DoPy {% now "Y" %}. All rights reserved.</p>Developed By</footer>
 
 	<!-- JS -->
-
+	{% include "menu_js.html" %}
 		<!-- jquery-1.11.3.min js -->
 			<script type="text/javascript" src="/static/services/js/jquery-1.11.3.min.js"></script>
 

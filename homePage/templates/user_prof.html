@@ -1,0 +1,67 @@
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Contact Us</title>
+
+    {% include "menu_css.html" %}
+    <link rel="stylesheet" href="/static/services/css/bootstrap.css">
+      
+    <!-- <link href="{% static "assets/css/font-awesome.min.css" %}" rel="stylesheet"> -->
+    <!-- <link href="{% static "assets/css/style_contact.css" %}" rel="stylesheet">-->
+    <link href="static/assets/css/main.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+
+
+    <!--[if lt IE 9]>
+    <script src="{% static "js/html5shiv.js" %}"></script>
+    <script src="{% static "js/respond.min.js" %}"></script>
+    <![endif]-->       
+</head><!--/head-->
+<body>
+
+    <!-- Menu -->
+          {% include "menu.html" %}
+    
+        <div class="row">
+                <div class="col-sm-12" style="padding-top:50px;text-align:center;">
+                    <h1>Contact Us</h1>
+                    <p>Department of photography</p>
+                </div>
+        </div>
+ 
+
+             <div class="row">
+                <div class="col-sm-12">
+                        <div class="col-sm-6 col-sm-offset-3">
+                        <h3>{{user}}</h3>
+                          <form method="POST" action="" style="color:#ef4138;">{% csrf_token %}
+                                  
+                                    
+                                    {% if user.is_authenticated %}
+                                    {{form|crispy}}
+                                <input type="submit" class="btn btn-primary" value="Submit">
+                                {% else %}
+                                {{form1|crispy}}
+                                <input type="submit" class="btn" value="Log in" />
+                                <input type="hidden" name="next" value="" />
+                                {% endif %}
+                            </form>
+
+                </div>
+                </div>
+            </div>
+           
+               
+
+
+    {% include "menu_js.html" %}
+   
+</body>
+</html>

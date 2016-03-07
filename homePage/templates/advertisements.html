@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Document Settings -->
+
+		<meta charset="utf-8" />
+		<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<meta name="theme-color" content="#ef4138">
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/png" href="/static/services/gallery/favicon.png">
+
+		<!-- Page Title -->
+		<title>{{title}}</title>
+
+		<!-- Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,400italic,600,700,900,200' rel='stylesheet' type='text/css'>
+
+		<!-- Bootstrap -->
+		{% include "menu_css.html" %}
+		<link rel="stylesheet" href="/static/services/css/bootstrap.css">
+
+		<!-- Custom css file -->
+		<link rel="stylesheet" href="/static/services/css/style.css">
+
+		<!-- Plugins -->
+		<link rel="stylesheet" href="/static/services/css/jquery.fullPage.css">
+		<link rel="stylesheet" href="/static/services/css/default-skin.css">
+		<link rel="stylesheet" href="/static/services/css/animate.css">
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <style>#embed-container { position: relative; padding-bottom: 28.125%;padding-top: 30px; height: 0; overflow: hidden; max-width: 95%; } #embed-container iframe, #embed-container object, #embed-container embed { position: absolute; top: 0; left: 0; width: 95%; height: 100%; }</style>
+	</head>
+	<body>
+	<!-- Container -->
+		<div class="container">
+
+		<!-- Mobile Menu -->
+		{% include "menu.html" %}		
+			
+		<!-- /Mobile Menu -->
+
+		<!-- Header -->
+			<header class="transition header">
+				<div class="parallax">
+					<div class="darker"></div>
+				</div>
+				<div class="main-menu">
+					<div id="logo">
+						<!-- <a href="index.html">
+							<img src="/static/services/gallery/logo.svg" alt="alex-zane-logo">
+						</a> -->
+					</div>
+
+				<!-- Menu -->
+		
+				</div>
+				<div class="item-category" style="color:#f7f7f7;">
+				<hr>
+					<h1>gallery</h1>
+					<p></p>
+					<hr>
+					
+				</div>
+			</header>
+		<!-- /Header -->
+		
+
+		<!--Content-->
+			<main class="content">
+		<h2 style="text-align:center;padding-top:15px;">Our Work</h2>
+			<!-- Row -->
+				<div class="masonry gallery row">
+
+
+				<!-- Grid Item-->
+				{% for o in link %}
+			
+				<div class="grid-item col-md-6 col-sm-6 col-xs-12" id="embed-container">
+
+						<a><iframe src="https://www.youtube.com/embed/{{o}}?autoplay=0" frameborder="0" allowfullscreen>
+						   </iframe>
+						</a>
+						<hr>
+						
+						<!-- <figcaption itemprop="caption description">@{{title}}</figcaption> -->
+					</div>
+				{% endfor %}
+				<!-- /Grid Item-->
+
+				</div>
+			<!-- /Row -->
+
+
+			<!-- Back to top button -->
+				<a href="#" class="back-top btn">
+					<i class="fa fa-angle-up fa-2x"></i>
+				</a>
+			<!-- /Back to top button -->
+
+			
+			<!-- /Footer -->
+				
+			</div>
+		<!-- /Content -->
+
+		</main>
+	<!-- /Container -->
+	<div style="background-color: #222;width: 100%;margin-bottom: -50px; text-align: center;">
+          <p style="padding-top: 20px;">© DoPy {% now "Y" %}. All rights reserved.</p><hr>
+          <p>Developed By</p>
+          <div class="container" style="background-color: #222;">
+            <div class="col-md-4 col-sm-6 col-xs-12" style="float: left;">
+           <a href="https://www.facebook.com/Gamesterassassin23"><h5>Snimarpal Singh </h5></a>
+          <p >snimar23@gmail.com</p>
+          <p>+91 7057414472</p>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12" style="float: right;">
+          <a href="https://www.facebook.com/anant.sharma.108"><h5 >Anant Sharma</h5></i></a>
+          <p>anant.2047@gmail.com</p>
+          <p>+91 7057422307</p>
+          </div>
+        </div>
+
+	<!-- JS -->
+	{% include "menu_js.html" %}
+
+		<!-- jquery-1.11.3.min js -->
+			<script type="text/javascript" src="/static/services/js/jquery-1.11.3.min.js"></script>
+
+		<!-- Plugins -->
+			<script type="text/javascript" src="/static/services/js/jquery.fullPage.min.js"></script>
+			<script type="text/javascript" src="/static/services/js/imagesloaded.pkgd.min.js"></script>
+			<script type="text/javascript" src="/static/services/js/masonry.js"></script>
+			<script type="text/javascript" src="/static/services/js/website-smooth-scroll.js"></script>
+			<script type="text/javascript" src="/static/services/js/photoswipe.min.js"></script>
+			<script type="text/javascript" src="/static/services/js/photoswipe-ui-default.min.js"></script>
+
+		<!-- Main js -->
+			<script src="/static/services/js/main.js"></script>
+	</body>
+</html>
